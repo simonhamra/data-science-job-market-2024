@@ -11,7 +11,7 @@ website:
         text: Analysis
       - href: data_analysis.qmd
         text: Data Cleaning
-        href: eda.qmd 
+      - href: eda.qmd 
         text: "Exploratory Analysis"
       - href: career_plan.qmd
         text: "Career Strategy"
