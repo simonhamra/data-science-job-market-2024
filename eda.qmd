@@ -1,0 +1,48 @@
+---
+title: "Exploratory Data Analysis"
+format:
+  html:
+    toc: true
+---
+
+## Job Postings by Industry
+
+```{=html}
+<iframe src="figures/job_postings_by_industry.html" width="100%" height="500px"></iframe>
+```
+
+## Salary Distribution by Industry
+
+```{=html}
+<iframe src="figures/salary_by_industry.html" width="100%" height="600px"></iframe>
+```
+
+## Remote vs. On-Site Jobs
+
+```{=html}
+<iframe src="figures/remote_vs_onsite.html" width="100%" height="500px"></iframe>
+```
+
+## Top 20 In-Demand Skills
+
+```{=html}
+<iframe src="figures/top_skills.html" width="100%" height="600px"></iframe>
+```
+
+## Top 15 Job Titles
+
+```{=html}
+<iframe src="figures/top_job_titles.html" width="100%" height="500px"></iframe>
+```
+
+## Salary by Job Title
+
+```{=html}
+<iframe src="figures/salary_by_title.html" width="100%" height="600px"></iframe>
+```
+
+## Job Postings by State
+
+```{=html}
+<iframe src="figures/job_postings_by_state.html" width="100%" height="500px"></iframe>
+```
