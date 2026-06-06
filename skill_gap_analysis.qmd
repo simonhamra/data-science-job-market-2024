@@ -18,6 +18,6 @@ skills_data = {
 
 df_skills = pd.DataFrame(skills_data)
 df_skills.set_index("Name", inplace=True)
-df_skills
+print(df_skills)
 ```
 
