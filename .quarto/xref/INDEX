@@ -13,5 +13,11 @@
   },
   "data_analysis.qmd": {
     "data_analysis.html": "1ecc49e1"
+  },
+  "eda.qmd": {
+    "eda.html": "097b795f"
+  },
+  "skill_gap_analysis.qmd": {
+    "skill_gap_analysis.html": "162245ed"
   }
 }
