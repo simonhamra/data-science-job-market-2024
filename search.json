@@ -1,5 +1,61 @@
 [
   {
+    "objectID": "eda.html#salary-distribution-by-industry",
+    "href": "eda.html#salary-distribution-by-industry",
+    "title": "Exploratory Data Analysis",
+    "section": "Salary Distribution by Industry",
+    "text": "Salary Distribution by Industry"
+  },
+  {
+    "objectID": "eda.html#remote-vs.-on-site-jobs",
+    "href": "eda.html#remote-vs.-on-site-jobs",
+    "title": "Exploratory Data Analysis",
+    "section": "Remote vs. On-Site Jobs",
+    "text": "Remote vs. On-Site Jobs"
+  },
+  {
+    "objectID": "eda.html#top-20-in-demand-skills",
+    "href": "eda.html#top-20-in-demand-skills",
+    "title": "Exploratory Data Analysis",
+    "section": "Top 20 In-Demand Skills",
+    "text": "Top 20 In-Demand Skills"
+  },
+  {
+    "objectID": "eda.html#top-15-job-titles",
+    "href": "eda.html#top-15-job-titles",
+    "title": "Exploratory Data Analysis",
+    "section": "Top 15 Job Titles",
+    "text": "Top 15 Job Titles"
+  },
+  {
+    "objectID": "eda.html#salary-by-job-title",
+    "href": "eda.html#salary-by-job-title",
+    "title": "Exploratory Data Analysis",
+    "section": "Salary by Job Title",
+    "text": "Salary by Job Title"
+  },
+  {
+    "objectID": "eda.html#job-postings-by-state",
+    "href": "eda.html#job-postings-by-state",
+    "title": "Exploratory Data Analysis",
+    "section": "Job Postings by State",
+    "text": "Job Postings by State"
+  },
+  {
+    "objectID": "skill_gap_analysis.html",
+    "href": "skill_gap_analysis.html",
+    "title": "Skill Gap Analysis",
+    "section": "",
+    "text": "import pandas as pd\n\nskills_data = {\n    \"Name\": [\"Meera\", \"Simon\", \"Mia\", \"Keily\"],\n    \"Python\": [3, 3, 2, 3],\n    \"SQL\": [4, 2, 2, 2],\n    \"Machine Learning\": [3, 5, 5, 3],\n    \"Cloud Computing\": [3, 3, 5, 2]\n}\n\ndf_skills = pd.DataFrame(skills_data)\ndf_skills.set_index(\"Name\", inplace=True)\nprint(df_skills)\n\n       Python  SQL  Machine Learning  Cloud Computing\nName                                                 \nMeera       3    4                 3                3\nSimon       3    2                 5                3\nMia         2    2                 5                5\nKeily       3    2                 3                2"
+  },
+  {
+    "objectID": "skill_gap_analysis.html#creating-a-skill-level-datafram",
+    "href": "skill_gap_analysis.html#creating-a-skill-level-datafram",
+    "title": "Skill Gap Analysis",
+    "section": "",
+    "text": "import pandas as pd\n\nskills_data = {\n    \"Name\": [\"Meera\", \"Simon\", \"Mia\", \"Keily\"],\n    \"Python\": [3, 3, 2, 3],\n    \"SQL\": [4, 2, 2, 2],\n    \"Machine Learning\": [3, 5, 5, 3],\n    \"Cloud Computing\": [3, 3, 5, 2]\n}\n\ndf_skills = pd.DataFrame(skills_data)\ndf_skills.set_index(\"Name\", inplace=True)\nprint(df_skills)\n\n       Python  SQL  Machine Learning  Cloud Computing\nName                                                 \nMeera       3    4                 3                3\nSimon       3    2                 5                3\nMia         2    2                 5                5\nKeily       3    2                 3                2"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Data Science & Business Analytics Trends in 2024",
