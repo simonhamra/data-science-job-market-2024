@@ -3,6 +3,7 @@ title: "Data Analysis"
 subtitle: "Comprehensive Data Cleaning & Exploratory Analysis of Job Market Trends"
 author:
   - name: Simon Hamra
+  - name: Miao Liu
     affiliations:
       - id: bu
         name: Boston University
@@ -14,3 +15,34 @@ format:
     number-sections: true
     df-print: paged
 ---
+
+## Research Question 2: AI/ML Expertise in Job Descriptions
+
+This section examines whether job descriptions from 2024–2026 increasingly require AI and machine learning expertise. Using the Lightcast job postings dataset, we searched for AI-related keywords in job titles, cleaned titles, skill fields, software skill fields, specialized skill fields, and job description text.
+
+### AI/ML Keyword Findings
+
+The most frequently observed AI-related terms were:
+
+- Artificial Intelligence: 26,250
+- Machine Learning: 12,979
+- LLM: 4,026
+- NLP: 1,076
+- Deep Learning: 748
+- Generative AI: 625
+- Computer Vision: 279
+- ChatGPT: 123
+
+These results suggest that AI and machine learning expertise is already visible in job descriptions, especially through broader terms such as Artificial Intelligence and Machine Learning. Newer terms such as Generative AI, LLM, and ChatGPT appear less frequently, but their presence shows that employers are beginning to include emerging AI tools and concepts in hiring requirements.
+
+### Interpretation
+
+The data suggests that job descriptions have evolved to include more AI-related language. Traditional AI/ML concepts remain more common than newer generative AI terms, but both categories are relevant to current job market expectations. For data science and business analytics students, this means that technical skills such as Python, SQL, machine learning, and AI literacy are becoming increasingly important for career preparation.
+
+### Connection to Literature
+
+External research supports this finding. OECD reports that artificial intelligence is changing the demand for skills in the labor market. Lightcast also reports growth in generative AI-related job postings. Additional research on generative AI and ChatGPT-related job advertisements suggests that employers are increasingly asking for AI-related knowledge across industries.
+
+### Conclusion
+
+Overall, the Lightcast keyword results and external labor market research suggest that job descriptions from 2024–2026 have evolved to place greater emphasis on AI and machine learning expertise.

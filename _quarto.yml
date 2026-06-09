@@ -7,20 +7,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: analysis.qmd
-        text: Analysis
       - href: data_analysis.qmd
-        text: Data Cleaning
-<<<<<<< HEAD
-      - href: eda.qmd 
-=======
+        text: Data Analysis
       - href: eda.qmd
->>>>>>> 71fa5d5 (Updated navbar)
-        text: "Exploratory Analysis"
-      - href: career_plan.qmd
-        text: "Career Strategy"
-      -href: skill_gap_analysis.qmd
-        text: "Skill Gap Analysis"
+        text: Exploratory Analysis
+      - href: skill_gap_analysis.qmd
+        text: Skill Gap Analysis
 
 format:
   html:
