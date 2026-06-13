@@ -1,17 +1,52 @@
 [
   {
-    "objectID": "skill_gap_analysis.html",
-    "href": "skill_gap_analysis.html",
-    "title": "Skill Gap Analysis",
+    "objectID": "advanced_visualizations.html",
+    "href": "advanced_visualizations.html",
+    "title": "Advanced Visualizations",
     "section": "",
-    "text": "Python  SQL  Machine Learning  Cloud Computing\nName                                                 \nMeera       3    4                 3                3\nSimon       3    2                 5                3\nMia         2    2                 5                5\nKeily       3    2                 3                2"
+    "text": "All advanced visualizations on this page are built using Plotly and are based on the cleaned Lightcast 2024 job postings dataset (72,477 records). Charts are embedded using full-width display and standardized dimensions to maintain visual consistency. These visualizations go beyond exploratory analysis to uncover deeper patterns in skill demand trends, industry hiring behavior, and the flow of roles and skills across sectors."
   },
   {
-    "objectID": "skill_gap_analysis.html#creating-a-skill-level-dataframe",
-    "href": "skill_gap_analysis.html#creating-a-skill-level-dataframe",
-    "title": "Skill Gap Analysis",
+    "objectID": "advanced_visualizations.html#visualization-theme",
+    "href": "advanced_visualizations.html#visualization-theme",
+    "title": "Advanced Visualizations",
     "section": "",
-    "text": "Python  SQL  Machine Learning  Cloud Computing\nName                                                 \nMeera       3    4                 3                3\nSimon       3    2                 5                3\nMia         2    2                 5                5\nKeily       3    2                 3                2"
+    "text": "All advanced visualizations on this page are built using Plotly and are based on the cleaned Lightcast 2024 job postings dataset (72,477 records). Charts are embedded using full-width display and standardized dimensions to maintain visual consistency. These visualizations go beyond exploratory analysis to uncover deeper patterns in skill demand trends, industry hiring behavior, and the flow of roles and skills across sectors."
+  },
+  {
+    "objectID": "advanced_visualizations.html#top-10-skills-ranked-by-month-2024---bump-chart",
+    "href": "advanced_visualizations.html#top-10-skills-ranked-by-month-2024---bump-chart",
+    "title": "Advanced Visualizations",
+    "section": "Top 10 Skills Ranked by Month (2024) - Bump Chart",
+    "text": "Top 10 Skills Ranked by Month (2024) - Bump Chart\nTracks how the ranking of the top 10 in-demand skills shifted across May–September 2024."
+  },
+  {
+    "objectID": "advanced_visualizations.html#in-demand-skills-by-job-title-and-industry---treemap",
+    "href": "advanced_visualizations.html#in-demand-skills-by-job-title-and-industry---treemap",
+    "title": "Advanced Visualizations",
+    "section": "In-Demand Skills by Job Title and Industry - Treemap",
+    "text": "In-Demand Skills by Job Title and Industry - Treemap\nShows the distribution of skills nested within job titles and industries. Block size represents number of postings."
+  },
+  {
+    "objectID": "advanced_visualizations.html#skills-landscape-by-industry-interactive---treemap",
+    "href": "advanced_visualizations.html#skills-landscape-by-industry-interactive---treemap",
+    "title": "Advanced Visualizations",
+    "section": "Skills Landscape by Industry (Interactive) - Treemap",
+    "text": "Skills Landscape by Industry (Interactive) - Treemap\nHow to Use: Use the dropdown menu at the top left to select an industry. The treemap will update to show only the job titles and skills relevant to that sector."
+  },
+  {
+    "objectID": "advanced_visualizations.html#industry-job-title-skills-flow---sankey",
+    "href": "advanced_visualizations.html#industry-job-title-skills-flow---sankey",
+    "title": "Advanced Visualizations",
+    "section": "Industry → Job Title → Skills Flow - Sankey",
+    "text": "Industry → Job Title → Skills Flow - Sankey\nHow to Read: Left (blue) = Industries, Middle (red) = Job Titles, Right (green) = Skills. Band width represents number of job postings."
+  },
+  {
+    "objectID": "advanced_visualizations.html#job-title-demand-by-industry---heatmap",
+    "href": "advanced_visualizations.html#job-title-demand-by-industry---heatmap",
+    "title": "Advanced Visualizations",
+    "section": "Job Title Demand by Industry - Heatmap",
+    "text": "Job Title Demand by Industry - Heatmap\nShows the number of job postings per job title across industries. Darker cells indicate higher demand."
   },
   {
     "objectID": "eda.html",
@@ -110,5 +145,19 @@
     "title": "Data Science & Business Analytics Trends in 2024",
     "section": "Research Rationale",
     "text": "Research Rationale\nUnderstanding labor market trends is important for students and professionals preparing for careers in data science and business analytics. Analyzing job postings provides valuable insights into employer expectations, skill requirements, salary patterns, and geographic demand.\nIn addition to exploratory data analysis, this project incorporates findings from external sources such as OECD, Stanford HAI, Lightcast reports, and academic literature. By combining labor market data with existing research, the project provides a broader understanding of how artificial intelligence is reshaping workforce demand and influencing the future of analytics-related careers."
+  },
+  {
+    "objectID": "skill_gap_analysis.html",
+    "href": "skill_gap_analysis.html",
+    "title": "Skill Gap Analysis",
+    "section": "",
+    "text": "Python  SQL  Machine Learning  Cloud Computing\nName                                                 \nMeera       3    4                 3                3\nSimon       3    2                 5                3\nMia         2    2                 5                5\nKeily       3    2                 3                2"
+  },
+  {
+    "objectID": "skill_gap_analysis.html#creating-a-skill-level-dataframe",
+    "href": "skill_gap_analysis.html#creating-a-skill-level-dataframe",
+    "title": "Skill Gap Analysis",
+    "section": "",
+    "text": "Python  SQL  Machine Learning  Cloud Computing\nName                                                 \nMeera       3    4                 3                3\nSimon       3    2                 5                3\nMia         2    2                 5                5\nKeily       3    2                 3                2"
   }
 ]
