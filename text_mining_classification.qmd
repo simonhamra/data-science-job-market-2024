@@ -1,0 +1,488 @@
+---
+title: "Text Mining & Classification"
+subtitle: "Do These Roles Actually Require Machine Learning? Predicting ML/Data-Science Intensity in Business-Intelligence Job Postings"
+author:
+  - name: Simon Hamra
+    affiliations:
+      - id: bu
+        name: Boston University
+        city: Boston
+        state: MA
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    df-print: paged
+    code-fold: true
+    code-summary: "Show the code"
+execute:
+  warning: false
+  message: false
+---
+
+## What I set out to do {#sec-intro}
+
+For my part of the project I took the two tasks from the assignment that go together naturally: the **text mining** of the job descriptions, and a **supervised classification** model. The pathway our team picked is *2.5 Business Analytics, Data Science, and Machine Learning Trends*, and the instruction there is pretty specific:
+
+> *"Use classification to detect whether a role requires ML/Data Science using structured features."*
+
+So that one sentence is the question I am answering on this page. Everything below builds toward it.
+
+Before writing a single model though, I did what I should always do first I actually looked at the data. And the data had a surprise waiting for me.
+
+```{python}
+#| label: setup
+import pandas as pd
+import numpy as np
+import re, ast
+import warnings; warnings.filterwarnings("ignore")
+
+import plotly.express as px
+import plotly.graph_objects as go
+import plotly.io as pio
+
+# Section 5 of the brief asks for one consistent theme across every chart.
+# I am fixing it once, here, and never touching it again.
+pio.templates.default = "plotly_white"
+PALETTE = {"ml": "#EF553B", "bi": "#636EFA"}   # red = ML/DS-intensive, blue = traditional BI
+```
+
+## The surprise in the data {#sec-surprise}
+
+The raw file looks enormous`wc -l` reports almost 13 million lines. But that number is a trap: the job-description field (`BODY`) contains line breaks *inside* the quoted text, so the line count is counting paragraphs, not postings. When you actually parse it, there are **72,498 real postings**.
+
+The bigger surprise came when I checked the occupation codes. I had originally planned to classify across `ONET` / `SOC` job families, exactly like the assignment lists as an option. Then I ran a value count:
+
+```{python}
+#| label: load
+df = pd.read_csv(
+    "data/lightcast_job_postings.csv",
+    encoding="utf-8-sig",
+    usecols=[
+        "TITLE_NAME", "BODY", "SKILLS_NAME", "ONET_NAME", "NAICS2_NAME",
+        "SALARY_FROM", "MIN_YEARS_EXPERIENCE", "REMOTE_TYPE_NAME",
+        "MIN_EDULEVELS_NAME", "STATE_NAME", "EMPLOYMENT_TYPE_NAME",
+    ],
+)
+df = df.dropna(subset=["BODY", "SKILLS_NAME"]).reset_index(drop=True)
+
+print(f"Real postings: {len(df):,}")
+print(f"Distinct ONET occupations: {df['ONET_NAME'].nunique()}")
+print(df["ONET_NAME"].value_counts(dropna=False).head())
+```
+
+Every single row is the **same** O\*NET occupation — *Business Intelligence Analysts*. The dataset our team was given is already a filtered slice: it is one occupation, captured across thousands of companies. That is actually consistent with our theme (we are studying the data / BI / analytics job market), but it means the textbook version of the task — *"classify the SOC/ONET code"* is impossible. There is only one code. You cannot train a classifier to separate one class from itself.
+
+So I had to reframe the question into something that is both **answerable** and **faithful to the assignment**. Instead of *"which occupation is this?"*, I ask:
+
+> **Within these business-intelligence roles, which ones are genuinely machine-learning / data-science intensive, and which ones are the more traditional reporting-and-dashboards kind of BI?**
+
+That is still exactly the spirit of pathway 2.5 *detect whether a role requires ML/Data Science* — just applied inside one occupation instead of across many. Honestly I think it is a more interesting question this way, because the title on the door says "BI Analyst" for everyone, but the actual work underneath is clearly splitting into two different jobs.
+
+## Defining the target: ML/DS-intensive vs. traditional BI {#sec-target}
+
+I label a posting as **ML/DS-intensive** (`1`) if its listed skills contain at least one genuinely machine-learning / data-science skill Python, Machine Learning, Deep Learning, NLP, TensorFlow, and so on. Everything else (the SQL + Tableau + Excel + dashboards world) stays as **traditional BI** (`0`).
+
+```{python}
+#| label: target
+def parse_skills(s):
+    """The skill fields are JSON-ish lists stored as text. Parse them safely."""
+    if pd.isna(s):
+        return []
+    try:
+        val = ast.literal_eval(s)
+        if isinstance(val, list):
+            return [str(x).strip() for x in val if str(x).strip() not in ("None", "")]
+    except Exception:
+        pass
+    return []
+
+df["skills_list"] = df["SKILLS_NAME"].apply(parse_skills)
+
+CORE_ML_DS = [
+    "machine learning", "python (programming", "data science", "deep learning",
+    "artificial intelligence", "natural language processing", "tensorflow",
+    "pytorch", "scikit-learn", "keras", "predictive modeling",
+    "r (programming", "computer vision", "big data", "apache spark", "data mining",
+]
+
+def is_ml_ds(skills):
+    blob = " || ".join(skills).lower()
+    return int(any(term in blob for term in CORE_ML_DS))
+
+df["ml_ds"] = df["skills_list"].apply(is_ml_ds)
+
+rate = df["ml_ds"].mean()
+counts = df["ml_ds"].value_counts().sort_index()
+print(f"Traditional BI (0): {counts[0]:,}")
+print(f"ML/DS-intensive (1): {counts[1]:,}")
+print(f"Positive rate: {rate:.1%}")
+```
+
+```{python}
+#| label: fig-balance
+#| fig-cap: "Figure 1 : Roughly 29% of these BI postings are machine-learning / data-science intensive. The classes are imbalanced but not pathologically so, which is realistic and means I should not trust raw accuracy alone I will lean on F1 and AUC."
+fig = px.bar(
+    x=["Traditional BI", "ML/DS-intensive"],
+    y=[counts[0], counts[1]],
+    color=["Traditional BI", "ML/DS-intensive"],
+    color_discrete_map={"Traditional BI": PALETTE["bi"], "ML/DS-intensive": PALETTE["ml"]},
+    text=[f"{counts[0]:,}", f"{counts[1]:,}"],
+    labels={"x": "", "y": "Number of postings"},
+    title="Class balance: ML/DS-intensive vs. traditional BI roles",
+)
+fig.update_traces(textposition="outside")
+fig.update_layout(showlegend=False, height=420)
+fig.show()
+```
+
+About **29%** of the postings are ML/DS-intensive. Good — that is a real split, not a 1% rounding error, so a classifier actually has something to learn.
+
+# Part 1 — Text Mining {#sec-text}
+
+The point of this section is descriptive: I want to *see* the vocabulary difference between the two kinds of role before I model anything. The assignment's optional text section (7) suggests TF-IDF, word clouds, and top-skill views, so that is what I build here.
+
+## Cleaning the job descriptions {#sec-clean}
+
+```{python}
+#| label: clean
+df["body_clean"] = (
+    df["BODY"].fillna("")
+    .str.lower()
+    .str.replace(r"<[^>]+>", " ", regex=True)   # strip any HTML
+    .str.replace(r"[^a-z\s]", " ", regex=True)  # keep letters only
+    .str.replace(r"\s+", " ", regex=True)
+    .str.strip()
+)
+print(f"Average description length: {df['body_clean'].str.len().mean():.0f} characters")
+```
+
+## TF-IDF features {#sec-tfidf}
+
+TF-IDF weights each term by how often it appears in a posting, discounted by how common it is across *all* postings so boilerplate like "responsibilities" gets pushed down and distinctive words rise to the top. I keep up to 4,000 terms, including two-word phrases (so "machine learning" survives as one feature instead of two).
+
+```{python}
+#| label: tfidf
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+tfidf = TfidfVectorizer(
+    max_features=4000, stop_words="english",
+    min_df=10, max_df=0.90, ngram_range=(1, 2),
+)
+X_tfidf = tfidf.fit_transform(df["body_clean"])
+vocab = np.array(tfidf.get_feature_names_out())
+print(f"TF-IDF matrix: {X_tfidf.shape[0]:,} postings × {X_tfidf.shape[1]:,} terms")
+```
+
+## Which words separate the two worlds? {#sec-topterms}
+
+```{python}
+#| label: fig-terms
+#| fig-cap: "Figure 2 : Mean TF-IDF weight of the top terms in each group. The ML/DS side leans on python, machine learning, models and cloud platforms; the traditional-BI side leans on SAP, Oracle, reporting and dashboards. Same job title, two very different toolkits."
+mean_ml = np.asarray(X_tfidf[df["ml_ds"].values == 1].mean(axis=0)).ravel()
+mean_bi = np.asarray(X_tfidf[df["ml_ds"].values == 0].mean(axis=0)).ravel()
+
+# terms that are most *distinctive* to each side (difference of mean weights)
+diff = mean_ml - mean_bi
+top_ml_idx = diff.argsort()[-15:][::-1]
+top_bi_idx = diff.argsort()[:15]
+
+terms_df = pd.concat([
+    pd.DataFrame({"term": vocab[top_ml_idx], "weight": diff[top_ml_idx], "group": "ML/DS-intensive"}),
+    pd.DataFrame({"term": vocab[top_bi_idx], "weight": -diff[top_bi_idx], "group": "Traditional BI"}),
+])
+
+fig = px.bar(
+    terms_df, x="weight", y="term", color="group", facet_col="group",
+    orientation="h", color_discrete_map={"ML/DS-intensive": PALETTE["ml"], "Traditional BI": PALETTE["bi"]},
+    title="Most distinctive terms in each type of role",
+)
+fig.update_yaxes(matches=None, categoryorder="total ascending")
+fig.update_xaxes(title="distinctiveness (difference in mean TF-IDF)")
+fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+fig.update_layout(showlegend=False, height=550)
+fig.show()
+```
+
+## Word clouds {#sec-wordcloud}
+
+A word cloud is not the most rigorous chart in the world, but it communicates the contrast instantly to a non-technical reader, which is half of what the storytelling part of the brief is asking for.
+
+```{python}
+#| label: fig-wordcloud
+#| fig-cap: "Figure 3 — Word clouds of the highest-TF-IDF terms in ML/DS-intensive (left, red) vs. traditional-BI (right, blue) postings."
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+freq_ml = dict(zip(vocab, mean_ml))
+freq_bi = dict(zip(vocab, mean_bi))
+
+fig, axes = plt.subplots(1, 2, figsize=(15, 5.5))
+axes[0].imshow(WordCloud(width=750, height=420, background_color="white",
+               colormap="Reds", max_words=90).generate_from_frequencies(freq_ml), interpolation="bilinear")
+axes[0].set_title("ML / Data-Science-intensive roles", fontsize=14); axes[0].axis("off")
+axes[1].imshow(WordCloud(width=750, height=420, background_color="white",
+               colormap="Blues", max_words=90).generate_from_frequencies(freq_bi), interpolation="bilinear")
+axes[1].set_title("Traditional BI roles", fontsize=14); axes[1].axis("off")
+plt.tight_layout(); plt.show()
+```
+
+## Top skills, side by side {#sec-skills}
+
+Going back to the structured skill lists (not the free text), here are the fifteen most common skills in each group.
+
+```{python}
+#| label: fig-skills
+#| fig-cap: "Figure 4 : Top 15 listed skills per group. Notice the overlap at the top (SQL, Data Analysis, Communication are universal) but the ML/DS side adds Python, Machine Learning and statistics, while the BI side stacks SAP, Power BI and Excel."
+def top_skills(mask, n=15):
+    s = df.loc[mask, "skills_list"].explode()
+    s = s[s != ""].value_counts().head(n)
+    return pd.DataFrame({"skill": s.index, "count": s.values})
+
+ml_sk = top_skills(df["ml_ds"] == 1).assign(group="ML/DS-intensive")
+bi_sk = top_skills(df["ml_ds"] == 0).assign(group="Traditional BI")
+skills_df = pd.concat([ml_sk, bi_sk])
+
+fig = px.bar(
+    skills_df, x="count", y="skill", color="group", facet_col="group",
+    orientation="h", color_discrete_map={"ML/DS-intensive": PALETTE["ml"], "Traditional BI": PALETTE["bi"]},
+    title="Top 15 skills in each type of role",
+)
+fig.update_yaxes(matches=None, categoryorder="total ascending")
+fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+fig.update_layout(showlegend=False, height=560)
+fig.show()
+```
+
+::: {.callout-note}
+## Why I will *not* feed skills or text into the classifier
+Look at @fig-skills again. My target label is *defined* from the skill list, so a posting that simply lists **more** skills is mechanically more likely to be tagged ML/DS and the description text literally spells out "Python" and "machine learning". If I let the model see any of that, it would just be reading the answer off the page. When I tested it, a text-based model hit ~84% accuracy almost entirely by memorising skill words — impressive-looking but circular. So for my **main** model in Part 2 I deliberately throw all of that away and use only *job metadata* (pay, education, experience, industry, location, work arrangement). It scores lower, but every point it earns is honest.
+:::
+
+# Part 2 — Classification {#sec-classification}
+
+Now the actual assignment task: **can I predict whether a BI role is ML/DS-intensive using structured features?** And the harder, self-imposed rule from the note above: using *only metadata the model could not cheat on*.
+
+## Feature engineering {#sec-features}
+
+```{python}
+#| label: features
+# --- experience (only MIN is well-populated; MAX is 88% missing so I drop it) ---
+df["min_exp"] = pd.to_numeric(df["MIN_YEARS_EXPERIENCE"], errors="coerce")
+df["exp_missing"] = df["min_exp"].isna().astype(int)
+df["min_exp"] = df["min_exp"].fillna(df["min_exp"].median())
+
+# --- advertised salary floor (~45% present; impute median + keep a missingness flag) ---
+df["salary_from"] = pd.to_numeric(df["SALARY_FROM"], errors="coerce")
+df["sal_missing"] = df["salary_from"].isna().astype(int)
+df["salary_from"] = df["salary_from"].fillna(df["salary_from"].median())
+
+# --- minimum education, as an ordinal ladder ---
+def edu_level(s):
+    s = str(s).lower()
+    if "doctoral" in s or "phd" in s or "ph.d" in s: return 5
+    if "master" in s:    return 4
+    if "bachelor" in s:  return 3
+    if "associate" in s: return 2
+    if "high school" in s or "ged" in s: return 1
+    return 0
+df["edu_level"] = df["MIN_EDULEVELS_NAME"].apply(edu_level)
+
+# --- work arrangement: 0 on-site/unspecified, 1 hybrid, 2 remote ---
+def remote_flag(s):
+    s = str(s).lower()
+    if "hybrid" in s: return 1
+    if "remote" in s and "not" not in s: return 2
+    return 0
+df["remote_flag"] = df["REMOTE_TYPE_NAME"].apply(remote_flag)
+
+df["full_time"] = df["EMPLOYMENT_TYPE_NAME"].astype(str).str.contains("Full-time").astype(int)
+df["tech_hub"]  = df["STATE_NAME"].isin({"California", "New York", "Texas", "Washington", "Massachusetts"}).astype(int)
+
+# --- industry sector, one-hot encoded (21 NAICS sectors) ---
+industry = pd.get_dummies(df["NAICS2_NAME"].fillna("Unknown").str.slice(0, 30), prefix="ind")
+
+META_FEATURES = ["min_exp", "exp_missing", "salary_from", "sal_missing",
+                 "edu_level", "remote_flag", "full_time", "tech_hub"]
+X = pd.concat([df[META_FEATURES], industry], axis=1)
+y = df["ml_ds"].values
+print(f"Feature matrix: {X.shape[0]:,} rows × {X.shape[1]} columns (metadata only — no skills, no text)")
+```
+
+The brief asks me to **justify feature selection**, so briefly: I kept the variables that are (a) populated for most postings and (b) plausibly related to how senior or technical a role is pay, education, experience, industry, location and work arrangement. I dropped `MAX_YEARS_EXPERIENCE` (88% missing) and, as explained above, I deliberately excluded skill-count and description text to avoid leaking the label. I confirm the *empirical* importance of what is left with a feature-importance plot at the end.
+
+## Train / test split {#sec-split}
+
+70 / 30, stratified so both sides keep the same 29% positive rate.
+
+```{python}
+#| label: split
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.30, random_state=42, stratify=y
+)
+scaler = StandardScaler().fit(X_train)              # logistic regression likes scaled inputs
+X_train_s, X_test_s = scaler.transform(X_train), scaler.transform(X_test)
+print(f"Train: {X_train.shape[0]:,}   Test: {X_test.shape[0]:,}")
+```
+
+## Model 1 — Logistic Regression {#sec-logreg}
+
+I start simple and interpretable. `class_weight="balanced"` tells it to care about the smaller ML/DS class instead of just predicting "BI" for everyone.
+
+```{python}
+#| label: logreg
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, f1_score, roc_auc_score, confusion_matrix, classification_report
+
+logreg = LogisticRegression(max_iter=1000, class_weight="balanced", random_state=42)
+logreg.fit(X_train_s, y_train)
+pred_lr = logreg.predict(X_test_s)
+proba_lr = logreg.predict_proba(X_test_s)[:, 1]
+
+acc_lr = accuracy_score(y_test, pred_lr)
+f1_lr  = f1_score(y_test, pred_lr)
+auc_lr = roc_auc_score(y_test, proba_lr)
+print(f"Accuracy: {acc_lr:.3f}   F1: {f1_lr:.3f}   ROC-AUC: {auc_lr:.3f}\n")
+print(classification_report(y_test, pred_lr, target_names=["Traditional BI", "ML/DS-intensive"]))
+```
+
+## Model 2 — Random Forest {#sec-rf}
+
+Then a Random Forest, which can pick up non-linear interactions (for example "high salary *and* a master's degree" together) that the linear model cannot.
+
+```{python}
+#| label: rf
+from sklearn.ensemble import RandomForestClassifier
+
+rf = RandomForestClassifier(
+    n_estimators=200, max_depth=14, class_weight="balanced",
+    n_jobs=-1, random_state=42,
+)
+rf.fit(X_train, y_train)                 # trees do not need scaling
+pred_rf = rf.predict(X_test)
+proba_rf = rf.predict_proba(X_test)[:, 1]
+
+acc_rf = accuracy_score(y_test, pred_rf)
+f1_rf  = f1_score(y_test, pred_rf)
+auc_rf = roc_auc_score(y_test, proba_rf)
+print(f"Accuracy: {acc_rf:.3f}   F1: {f1_rf:.3f}   ROC-AUC: {auc_rf:.3f}\n")
+print(classification_report(y_test, pred_rf, target_names=["Traditional BI", "ML/DS-intensive"]))
+```
+
+## Confusion matrices {#sec-cm}
+
+```{python}
+#| label: fig-cm
+#| fig-cap: "Figure 5 Confusion matrices on the held-out test set. The Random Forest (right) recovers noticeably more of the true ML/DS roles (bottom-right cell) than logistic regression, which is why its F1 is higher."
+from plotly.subplots import make_subplots
+
+cm_lr = confusion_matrix(y_test, pred_lr)
+cm_rf = confusion_matrix(y_test, pred_rf)
+labels = ["Traditional BI", "ML/DS"]
+
+fig = make_subplots(rows=1, cols=2, subplot_titles=("Logistic Regression", "Random Forest"))
+fig.add_trace(go.Heatmap(z=cm_lr, x=labels, y=labels, colorscale="Blues",
+              showscale=False, text=cm_lr, texttemplate="%{text}"), 1, 1)
+fig.add_trace(go.Heatmap(z=cm_rf, x=labels, y=labels, colorscale="Oranges",
+              showscale=False, text=cm_rf, texttemplate="%{text}"), 1, 2)
+fig.update_yaxes(title="Actual", autorange="reversed")
+fig.update_xaxes(title="Predicted")
+fig.update_layout(height=420, title="Confusion matrices (test set)")
+fig.show()
+```
+
+## Model comparison {#sec-compare}
+
+```{python}
+#| label: fig-compare
+#| fig-cap: "Figure 6 Random Forest beats logistic regression on all three metrics. Both clear the 0.5 'coin-flip' AUC baseline comfortably, which tells me job metadata genuinely carries signal about how technical a role is."
+comp = pd.DataFrame({
+    "Model": ["Logistic Regression"] * 3 + ["Random Forest"] * 3,
+    "Metric": ["Accuracy", "F1", "ROC-AUC"] * 2,
+    "Score": [acc_lr, f1_lr, auc_lr, acc_rf, f1_rf, auc_rf],
+})
+fig = px.bar(comp, x="Metric", y="Score", color="Model", barmode="group",
+             text=comp["Score"].round(3),
+             color_discrete_sequence=[PALETTE["bi"], PALETTE["ml"]],
+             title="Logistic Regression vs. Random Forest")
+fig.update_traces(textposition="outside")
+fig.update_layout(yaxis_range=[0, 1], height=440)
+fig.show()
+```
+
+## What the model actually keys on {#sec-importance}
+
+```{python}
+#| label: fig-importance
+#| fig-cap: "Figure 7 Random Forest feature importances. Advertised salary, required education and required experience are the three strongest signals none of which mention a single skill. That is the honest result I was hoping for."
+imp = (pd.Series(rf.feature_importances_, index=X.columns)
+         .sort_values(ascending=False).head(12).iloc[::-1])
+fig = px.bar(x=imp.values, y=imp.index, orientation="h",
+             color=imp.values, color_continuous_scale="Viridis",
+             labels={"x": "importance", "y": ""},
+             title="Top 12 features (Random Forest)")
+fig.update_layout(height=520, coloraxis_showscale=False)
+fig.show()
+```
+
+```{python}
+#| label: coefs
+# direction matters too — logistic-regression coefficients tell me the *sign* of each effect
+coef = (pd.Series(logreg.coef_[0], index=X.columns)
+          .reindex(META_FEATURES).sort_values())
+print("Logistic-regression coefficients (positive ⇒ pushes toward ML/DS-intensive):\n")
+print(coef.round(3).to_string())
+```
+
+## Reading the result {#sec-interpret}
+
+**In plain language.** I trained two models to guess, from nothing but a posting's metadata, whether a "BI Analyst" job is really a machine-learning / data-science job underneath. The Random Forest lands around **0.71 accuracy, 0.58 F1 and 0.78 AUC** on data it never saw clearly better than chance, and clearly better than the logistic baseline (~0.66 AUC).
+
+**The features that mattered** were, in order, **advertised salary, required education, and required years of experience**. The direction is intuitive and the logistic coefficients confirm it: higher minimum education pushes a role toward ML/DS, and remote-friendly roles skew slightly more ML/DS too. In other words, the data-science version of a BI job tends to pay more and ask for a more advanced degree even when the job title on the posting is identical.
+
+**Why it is not higher.** I capped my own accuracy on purpose by refusing to let the model read the skill list or the description (see the callout in Part 1). A model is only as trustworthy as the question it answers, and "predict the skills from the skills" is not a real question. ~0.78 AUC from pure metadata is, to me, the more defensible number to put my name on.
+
+**For a job seeker** (this is the part the brief section 6 really wants): if you are aiming for the data-science end of this market rather than the reporting end, the metadata of the posting is a tell. Roles that advertise a higher salary band and ask for a master's are far more likely to be the genuinely ML-heavy ones. If a posting says "BI Analyst" but only asks for a bachelor's and lists Excel and Power BI, expect dashboards, not models.
+
+# Part 3 — Optional: a text-based classifier {#sec-optional}
+
+The assignment's section 7 offers extra credit for a TF-IDF classifier (Naive Bayes or SVM). I include it here for completeness, but with my eyes open about what it is really doing.
+
+```{python}
+#| label: nb
+from sklearn.naive_bayes import MultinomialNB
+
+Xt_tr, Xt_te, yt_tr, yt_te = train_test_split(
+    X_tfidf, y, test_size=0.30, random_state=42, stratify=y
+)
+nb = MultinomialNB().fit(Xt_tr, yt_tr)
+pred_nb = nb.predict(Xt_te)
+print(f"Naive Bayes on TF-IDF text  —  Accuracy: {accuracy_score(yt_te, pred_nb):.3f}   "
+      f"F1: {f1_score(yt_te, pred_nb):.3f}")
+```
+
+Feeding the description text into a Naive Bayes classifier jumps to roughly **0.84 accuracy / 0.73 F1** — higher than my metadata model. But I want to be transparent: this works mostly because the descriptions literally contain the words "Python" and "machine learning", which is how I defined the label in the first place. So this section is best read as a *demonstration of the TF-IDF → classifier pipeline*, not as evidence that text is "better." It is the exact circularity I avoided in Part 2, shown on purpose so the contrast is clear.
+
+# Wrapping up {#sec-conclusion}
+
+**Key insights**
+
+- The dataset is a single occupation (*BI Analyst*), but underneath that one title it splits cleanly into two jobs and about **29%** of postings are genuinely ML/DS-intensive.
+- Text mining shows the two groups speak different languages: *python / machine learning / models* vs. *SAP / Oracle / dashboards / reporting*.
+- Using **only metadata**, a Random Forest predicts ML/DS-intensity at **~0.78 AUC**, driven by **salary, education and experience** not by any skill keyword.
+
+**Recommendations for job seekers**
+
+- Treat the salary band and the degree requirement as signals: the higher-paying, master's-preferred "BI" roles are usually the real data-science roles in disguise.
+- If you want to move from reporting to modelling, the skills to add are the ones in the red word cloud Python first, then the ML stack.
+
+**Limitations I would fix with more time**
+
+- My label is a heuristic from the skill list; a hand-labelled sample would let me measure how good that heuristic really is.
+- `MAX_YEARS_EXPERIENCE` and a chunk of salary data are missing, so the salary signal is noisier than I would like.
+- Everything here is one occupation in one snapshot of time I would not extrapolate it to the whole labour market.
+```
