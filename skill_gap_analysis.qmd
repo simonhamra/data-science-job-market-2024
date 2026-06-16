@@ -1,14 +1,17 @@
 ---
 title: "Skill Gap Analysis"
 subtitle: "How do the current proficiency levels of our team's list of skills compare to industry requirements?"
-author:
-    -name: Keily Perla
 format:
     html:
         toc: true
         code-fold: true
         code-summary: "Show the code"
 ---
+## Introduction
+
+This section conducts a skill gap analysis by comparing our team's current set of skills with the market's expectations. By comparing the top in-demand skills found in the dataset to the team's profeciency levels, possible gaps in knowledge can be identfied. A proposed improvement plan can ensure that individual development will align with market demands.
+
+
 ## Creating a Skill Level DataFrame
 
 When first listing IT-related skills, our team ranked our proficiency levels on the following numerical scale:

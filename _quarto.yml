@@ -17,6 +17,8 @@ website:
         text: Advanced Visualizations
       - href: text_mining_classification.qmd
         text: Text Mining & Classification
+      - href: kmeans_clustering.qmd
+        text: KMeans Clustering Analysis
 
 format:
   html:
