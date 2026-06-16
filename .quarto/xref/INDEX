@@ -22,5 +22,11 @@
   },
   "kmeans_clustering.qmd": {
     "kmeans_clustering.html": "026d9f89"
+  },
+  "advanced_visualizations.qmd": {
+    "advanced_visualizations.html": "ccb16cda"
+  },
+  "text_mining_classification.qmd": {
+    "text_mining_classification.html": "2c4c9c3e"
   }
 }
