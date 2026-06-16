@@ -21,7 +21,7 @@ skills_data = {
 
 df_skills = pd.DataFrame(skills_data)
 df_skills.set_index("Name", inplace=True)
-print(df_skills)
+# print(df_skills)
 
 
 # Heat map of skill level data frame
@@ -31,3 +31,28 @@ plt.title("Team Skill Levels Heatmap")
 plt.show()
 ```
 
+
+## Comparing Team Skills to Industry Requirements
+```{python}
+from collections import Counter
+
+# Assuming job_descriptions is a list of text from job postings
+top_skills = ["Python", "SQL", "Machine Learning", "Cloud Computing", "Docker", "AWS"]
+job_skill_counts = Counter(top_skills)
+
+# Compare with team skill levels
+for skill in top_skills:
+    if skill not in df_skills.columns:
+        df_skills[skill] = 0  # Assume no knowledge in missing skills
+
+df_skills
+```
+
+
+## Improvement Plan Proposal
+
+(1) Prioritizing our learning:
+
+(2) Finding courses or resources to help:
+
+(3) Using team collaboration to bridge skill gaps:
