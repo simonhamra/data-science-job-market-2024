@@ -1,11 +1,25 @@
 ---
 title: "Skill Gap Analysis"
+subtitle: "How do the current proficiency levels of our team's list of skills compare to industry requirements?"
+author:
+    -name: Keily Perla
 format:
     html:
         toc: true
-        echo: false
+        code-fold: true
+        code-summary: "Show the code"
 ---
 ## Creating a Skill Level DataFrame
+
+When first listing IT-related skills, our team ranked our proficiency levels on the following numerical scale:
+
+    1 = Beginner
+    2 = Basic knowledge
+    3 = Intermediate
+    4 = Advanced
+    5 = Expert
+
+Orignally, we thought relevant skills would include coding languages, machine learning, and cloud computing. The following heatmap helps you visualize which group members excelled in which of these skillsets.
 ```{python}
 import pandas as pd
 import seaborn as sns
@@ -33,11 +47,25 @@ plt.show()
 
 
 ## Comparing Team Skills to Industry Requirements
+
+After completing the exploratory data visualizations, it became apparent that the skills we assumed would be in highest demand were not all found in the top 20 in-demand skills of the dataset. After updating our list of skills, using the same numerical scale to indicate proficiency levels, we are able to compare our teams skills to the industry's demands. 
 ```{python}
+
+skills_data = {
+    "Communication":[0,0,0,0],
+    "Data Analysis":[0,0,0,0],
+    "Management":[0,0,0,0],
+    "Problem Solving":[0,0,0,0],
+    "Leadership":[0,0,0,0],
+    "Computer Science":[0,0,0,0],
+    "Operations":[0,0,0,0],
+    "Project Management":[0,0,0,0],
+    "Business Process":[0,0,0,0]
+}
 from collections import Counter
 
-# Assuming job_descriptions is a list of text from job postings
-top_skills = ["Python", "SQL", "Machine Learning", "Cloud Computing", "Docker", "AWS"]
+# Top 10 In-Demand Skills in Job Postings found in exploratory data tab
+top_skills = ["Communication", "Data Analysis", "Management", "SQL", "Problem Solving", "Leadership", "Computer Science","Operations", "Project Management", "Business Process"]
 job_skill_counts = Counter(top_skills)
 
 # Compare with team skill levels
@@ -48,11 +76,22 @@ for skill in top_skills:
 df_skills
 ```
 
+An updated heatmap could now be created with a more accurate representation of our team's skills in comparison to the industry's requirements.
+```{python}
+# Heat map of skill level data frame
+plt.figure(figsize=(8, 6))
+sns.heatmap(df_skills, annot=True, cmap="coolwarm", linewidths=0.5)
+plt.title("Team Skill Levels Heatmap")
+plt.xticks(rotation=45)
+plt.show()
+```
+
 
 ## Improvement Plan Proposal
+Now that we have compared our current skill proficiency levels to the industry requirements, we can identify areas of improvement. The following steps can be taken to begin the process of strengthing in-demand skills:
 
-(1) Prioritizing our learning:
+(1) Prioritizing our learning
 
-(2) Finding courses or resources to help:
+(2) Finding courses or resources to help
 
-(3) Using team collaboration to bridge skill gaps:
+(3) Using team collaboration to bridge skill gaps
