@@ -1,5 +1,12 @@
 ---
 title: "Exploratory Data Analysis"
+author:
+  - name: Meera Chaddha
+    affiliations:
+      - id: bu
+        name: Boston University
+        city: Boston
+        state: MA
 format:
   html:
     toc: true
