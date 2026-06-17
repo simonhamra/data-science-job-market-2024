@@ -137,8 +137,23 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#research-rationale" id="toc-research-rationale" class="nav-link" data-scroll-target="#research-rationale">Research Rationale</a></li>
-  <li><a href="#eda-analysis" id="toc-eda-analysis" class="nav-link" data-scroll-target="#eda-analysis">EDA Analysis</a></li>
-  <li><a href="#advanced-visualizations" id="toc-advanced-visualizations" class="nav-link" data-scroll-target="#advanced-visualizations">Advanced Visualizations</a></li>
+  <li><a href="#eda-analysis" id="toc-eda-analysis" class="nav-link" data-scroll-target="#eda-analysis">EDA Analysis</a>
+  <ul class="collapse">
+  <li><a href="#chart-1-job-postings-by-industry" id="toc-chart-1-job-postings-by-industry" class="nav-link" data-scroll-target="#chart-1-job-postings-by-industry">Chart 1: Job Postings by Industry</a></li>
+  <li><a href="#chart-2-salary-distribution-by-industry" id="toc-chart-2-salary-distribution-by-industry" class="nav-link" data-scroll-target="#chart-2-salary-distribution-by-industry">Chart 2: Salary Distribution by Industry</a></li>
+  <li><a href="#chart-3-remote-vs.-on-site" id="toc-chart-3-remote-vs.-on-site" class="nav-link" data-scroll-target="#chart-3-remote-vs.-on-site">Chart 3: Remote vs.&nbsp;On-site</a></li>
+  <li><a href="#chart-4-top-in-demand-skills" id="toc-chart-4-top-in-demand-skills" class="nav-link" data-scroll-target="#chart-4-top-in-demand-skills">Chart 4: Top In-Demand Skills</a></li>
+  <li><a href="#chart-5-top-job-titles" id="toc-chart-5-top-job-titles" class="nav-link" data-scroll-target="#chart-5-top-job-titles">Chart 5: Top Job Titles</a></li>
+  <li><a href="#chart-6-salary-by-job-title-top-10-titles" id="toc-chart-6-salary-by-job-title-top-10-titles" class="nav-link" data-scroll-target="#chart-6-salary-by-job-title-top-10-titles">Chart 6: Salary By Job Title (Top 10 Titles)</a></li>
+  <li><a href="#chart-7-job-postings-by-state" id="toc-chart-7-job-postings-by-state" class="nav-link" data-scroll-target="#chart-7-job-postings-by-state">Chart 7: Job Postings By State</a></li>
+  </ul></li>
+  <li><a href="#advanced-visualizations" id="toc-advanced-visualizations" class="nav-link" data-scroll-target="#advanced-visualizations">Advanced Visualizations</a>
+  <ul class="collapse">
+  <li><a href="#top-10-skills-ranked-by-month-2024-filter-by-job-title---bump-chart" id="toc-top-10-skills-ranked-by-month-2024-filter-by-job-title---bump-chart" class="nav-link" data-scroll-target="#top-10-skills-ranked-by-month-2024-filter-by-job-title---bump-chart">Top 10 Skills Ranked by Month (2024) Filter by Job Title - Bump Chart</a></li>
+  <li><a href="#skills-landscape-by-industry-interactive---treemap" id="toc-skills-landscape-by-industry-interactive---treemap" class="nav-link" data-scroll-target="#skills-landscape-by-industry-interactive---treemap">Skills Landscape by Industry (Interactive) - Treemap</a></li>
+  <li><a href="#industry-job-title-skills-flow---sankey" id="toc-industry-job-title-skills-flow---sankey" class="nav-link" data-scroll-target="#industry-job-title-skills-flow---sankey">Industry → Job Title → Skills Flow - Sankey</a></li>
+  <li><a href="#job-title-demand-by-industry---heatmap" id="toc-job-title-demand-by-industry---heatmap" class="nav-link" data-scroll-target="#job-title-demand-by-industry---heatmap">Job Title Demand by Industry - Heatmap</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -176,31 +191,46 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="eda-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="eda-analysis">EDA Analysis</h2>
-<p><strong>Chart 1: Job Postings by Industry</strong></p>
+<section id="chart-1-job-postings-by-industry" class="level3">
+<h3 class="anchored" data-anchor-id="chart-1-job-postings-by-industry">Chart 1: Job Postings by Industry</h3>
 <p><strong>Why:</strong> Identifies where hiring demand is concentrated, helping job seekers know which industries to target.</p>
 <p><strong>Insights:</strong> Unclassified Industry dominates, followed by Custom Computer Programming Services and Administrative Management. This suggests strong demand in tech and business services sectors.</p>
-<p><strong>Chart 2: Salary Distribution by Industry</strong></p>
+</section>
+<section id="chart-2-salary-distribution-by-industry" class="level3">
+<h3 class="anchored" data-anchor-id="chart-2-salary-distribution-by-industry">Chart 2: Salary Distribution by Industry</h3>
 <p><strong>Why:</strong> Reveals not just average pay but salary spread and outliers within each industry.</p>
 <p><strong>Insights:</strong> Salaries across most industries cluster between 100𝑘−200k. Offices of Certified Public Accountants shows the tightest range, while Employment Placement Agencies and Temporary Help Services have extreme outliers pushing past 400𝑘−500k, likely reflecting contract or senior placements. Computer Systems Design Services has the most data points concentrated at the lower end, suggesting a high volume of entry to mid-level roles.</p>
-<p><strong>Chart 3: Remote vs.&nbsp;On-site</strong></p>
+</section>
+<section id="chart-3-remote-vs.-on-site" class="level3">
+<h3 class="anchored" data-anchor-id="chart-3-remote-vs.-on-site">Chart 3: Remote vs.&nbsp;On-site</h3>
 <p><strong>Why:</strong> Remote work flexibility is a key factor for job seekers evaluating opportunities.</p>
 <p><strong>Insights:</strong> 78% of postings have no remote type specified ([NONE]), which likely means on-site or unspecified. Only 17.2% are fully remote, 3.12% hybrid, and 1.56% explicitly not remote. This suggests that true remote flexibility remains limited, and most employers either require in-person work or do not advertise remote options at all.</p>
-<p><strong>Chart 4: Top In-Demand Skills</strong></p>
+</section>
+<section id="chart-4-top-in-demand-skills" class="level3">
+<h3 class="anchored" data-anchor-id="chart-4-top-in-demand-skills">Chart 4: Top In-Demand Skills</h3>
 <p><strong>Why:</strong> Directly answers our research question on what skills DS/BA/ML roles require most.</p>
 <p><strong>Insights:</strong> Communication and Data Analysis are the top two skills by a significant margin, followed by Management and SQL Python appears further down the list, alongside Tableau and Dashboard skills. This suggests employers value a blend of soft skills and technical tools, not just coding ability.</p>
-<p><strong>Chart 5: Top Job Titles</strong></p>
+</section>
+<section id="chart-5-top-job-titles" class="level3">
+<h3 class="anchored" data-anchor-id="chart-5-top-job-titles">Chart 5: Top Job Titles</h3>
 <p><strong>Why:</strong> Shows which roles are actually being hired for, giving a realistic picture of the job market.</p>
 <p><strong>Insights:</strong> Data Analysts dominate postings by a wide margin with over 8,000 listings, nearly triple the next category. Business Intelligence Analysts and Enterprise Architects follow, with many specialized analyst roles (Data Governance, Data Quality, Data Modelers) also appearing. This indicates strong and diverse demand across the data field.</p>
-<p><strong>Chart 6: Salary By Job Title (Top 10 Titles)</strong></p>
+</section>
+<section id="chart-6-salary-by-job-title-top-10-titles" class="level3">
+<h3 class="anchored" data-anchor-id="chart-6-salary-by-job-title-top-10-titles">Chart 6: Salary By Job Title (Top 10 Titles)</h3>
 <p><strong>Why:</strong> Shows earning potential across the most common roles to help with career planning.</p>
 <p><strong>Insights:</strong> Data Analytics Engineers command the highest salaries with a median around $200k and a wide range, while Data Analysts sit at the lower end around $100k-$150k despite being the most posted role. Enterprise Architects and Oracle Cloud HCM Consultants also show strong earning potential with notable outliers. This suggests that specialization is rewarded significantly over generalist analyst roles.</p>
-<p><strong>Chart 7: Job Postings By State</strong></p>
+</section>
+<section id="chart-7-job-postings-by-state" class="level3">
+<h3 class="anchored" data-anchor-id="chart-7-job-postings-by-state">Chart 7: Job Postings By State</h3>
 <p><strong>Why:</strong> Geographic variation in job postings helps job seekers understand where to target their search and whether relocation could significantly expand opportunities.</p>
 <p><strong>Insights:</strong> Texas and California dominate by a wide margin, together accounting for a large share of all postings. Florida, Virgina, Illinois, and New York follow, suggesting that major tech and business hubs remain the primary hiring centers.</p>
 </section>
+</section>
 <section id="advanced-visualizations" class="level2">
 <h2 class="anchored" data-anchor-id="advanced-visualizations">Advanced Visualizations</h2>
-<p><strong>Top 10 Skills Ranked by Month (2024) Filter by Job Title - Bump Chart</strong></p>
+<section id="top-10-skills-ranked-by-month-2024-filter-by-job-title---bump-chart" class="level3">
+<h3 class="anchored" data-anchor-id="top-10-skills-ranked-by-month-2024-filter-by-job-title---bump-chart">Top 10 Skills Ranked by Month (2024) Filter by Job Title - Bump Chart</h3>
 <p><strong>Why This Chart?</strong></p>
 <p>A bump chart shows how skill rankings shift over time across five months (May–September 2024). Filtering with the dropdown shows which skills are consistently prioritized vs.&nbsp;situationally demanded for each job title. This is something a static bar chart cannot reveal.</p>
 <p><strong>Key Insights</strong></p>
@@ -212,7 +242,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Implications for Job Seekers</strong></p>
 <p>Use the dropdown to find your target job title and identify which skills hold the top 3 ranks consistently, those are your must-haves. Skills that fluctuate between ranks 4–10 are strong differentiators but not dealbreakers. Prioritize stable top-ranked skills in your resume before adding situational ones.</p>
-<p><strong>Skills Landscape by Industry (Interactive) - Treemap</strong></p>
+</section>
+<section id="skills-landscape-by-industry-interactive---treemap" class="level3">
+<h3 class="anchored" data-anchor-id="skills-landscape-by-industry-interactive---treemap">Skills Landscape by Industry (Interactive) - Treemap</h3>
 <p><strong>Why This Chart?</strong></p>
 <p>This interactive version allows job seekers to focus on a single industry at a time, reducing visual noise and enabling direct comparison of role and skill demand within a specific sector.</p>
 <p><strong>Key Insights</strong></p>
@@ -221,7 +253,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Computer Systems Design heavily favors Microsoft Access and Progress Reporting for Data Analysts, suggesting a more traditional enterprise analytics stack.</li>
 <li>Public Accountants is the smallest sector but shows BigQuery and Capital Markets skills, indicating emerging data modernization in accounting firms.</li>
 </ul>
-<p><strong>Industry → Job Title → Skills Flow - Sankey</strong></p>
+</section>
+<section id="industry-job-title-skills-flow---sankey" class="level3">
+<h3 class="anchored" data-anchor-id="industry-job-title-skills-flow---sankey">Industry → Job Title → Skills Flow - Sankey</h3>
 <p><strong>Why This Chart?</strong></p>
 <p>A Sankey diagram visualizes flow and volume simultaneously. The width of each band represents the number of job postings flowing from an industry through a job title into a required skill. This makes it easy to see where demand is concentrated across the entire hiring pipeline at once.</p>
 <p><strong>Key Insights</strong></p>
@@ -233,7 +267,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Implications for Job Seekers</strong></p>
 <p>Focus on Data Analyst roles as the primary entry point. These represent the largest share of available positions across every major industry.</p>
-<p><strong>Job Title Demand by Industry - Heatmap</strong></p>
+</section>
+<section id="job-title-demand-by-industry---heatmap" class="level3">
+<h3 class="anchored" data-anchor-id="job-title-demand-by-industry---heatmap">Job Title Demand by Industry - Heatmap</h3>
 <p><strong>Why This Chart?</strong></p>
 <p>A heatmap is ideal for showing a two-dimensional comparison. Here we cross job titles against industries, with color intensity representing the number of postings. Darker cells immediately draw attention to where demand is highest.</p>
 <p><strong>Key Insights</strong></p>
@@ -248,6 +284,7 @@ ul.task-list li input[type="checkbox"] {
 <p>If you are targeting a Data Analyst role, Computer Programming and Management Consulting firms offer the most opportunities. If you specialize in Data Modeling, Computer Programming is your primary target market.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
