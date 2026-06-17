@@ -16,43 +16,43 @@ In addition to exploratory data analysis, this project incorporates findings fro
 
 ## EDA Analysis 
 
-**Chart 1: Job Postings by Industry** 
+### Chart 1: Job Postings by Industry
 
 **Why:** Identifies where hiring demand is concentrated, helping job seekers know which industries to target.
 
 **Insights:** Unclassified Industry dominates, followed by Custom Computer Programming Services and Administrative Management. This suggests strong demand in tech and business services sectors.
 
-**Chart 2: Salary Distribution by Industry**
+### Chart 2: Salary Distribution by Industry
 
 **Why:** Reveals not just average pay but salary spread and outliers within each industry.
 
 **Insights:** Salaries across most industries cluster between 100𝑘−200k. Offices of Certified Public Accountants shows the tightest range, while Employment Placement Agencies and Temporary Help Services have extreme outliers pushing past 400𝑘−500k, likely reflecting contract or senior placements. Computer Systems Design Services has the most data points concentrated at the lower end, suggesting a high volume of entry to mid-level roles.
 
-**Chart 3: Remote vs. On-site**  
+### Chart 3: Remote vs. On-site
 
 **Why:** Remote work flexibility is a key factor for job seekers evaluating opportunities.
 
 **Insights:** 78% of postings have no remote type specified ([NONE]), which likely means on-site or unspecified. Only 17.2% are fully remote, 3.12% hybrid, and 1.56% explicitly not remote. This suggests that true remote flexibility remains limited, and most employers either require in-person work or do not advertise remote options at all.
 
-**Chart 4: Top In-Demand Skills**
+### Chart 4: Top In-Demand Skills
 
 **Why:** Directly answers our research question on what skills DS/BA/ML roles require most.
 
 **Insights:** Communication and Data Analysis are the top two skills by a significant margin, followed by Management and SQL Python appears further down the list, alongside Tableau and Dashboard skills. This suggests employers value a blend of soft skills and technical tools, not just coding ability.
 
-**Chart 5: Top Job Titles** 
+### Chart 5: Top Job Titles
 
 **Why:** Shows which roles are actually being hired for, giving a realistic picture of the job market.
 
 **Insights:** Data Analysts dominate postings by a wide margin with over 8,000 listings, nearly triple the next category. Business Intelligence Analysts and Enterprise Architects follow, with many specialized analyst roles (Data Governance, Data Quality, Data Modelers) also appearing. This indicates strong and diverse demand across the data field.
 
-**Chart 6: Salary By Job Title (Top 10 Titles)** 
+### Chart 6: Salary By Job Title (Top 10 Titles)
 
 **Why:** Shows earning potential across the most common roles to help with career planning.
 
 **Insights:** Data Analytics Engineers command the highest salaries with a median around $200k and a wide range, while Data Analysts sit at the lower end around $100k-$150k despite being the most posted role. Enterprise Architects and Oracle Cloud HCM Consultants also show strong earning potential with notable outliers. This suggests that specialization is rewarded significantly over generalist analyst roles.
 
-**Chart 7: Job Postings By State** 
+### Chart 7: Job Postings By State 
 
 **Why:** Geographic variation in job postings helps job seekers understand where to target their search and whether relocation could significantly expand opportunities.
 
@@ -60,7 +60,7 @@ In addition to exploratory data analysis, this project incorporates findings fro
 
 ## Advanced Visualizations 
 
-**Top 10 Skills Ranked by Month (2024) Filter by Job Title - Bump Chart**
+### Top 10 Skills Ranked by Month (2024) Filter by Job Title - Bump Chart
 
 **Why This Chart?** 
 
@@ -77,7 +77,7 @@ A bump chart shows how skill rankings shift over time across five months (May–
 
 Use the dropdown to find your target job title and identify which skills hold the top 3 ranks consistently, those are your must-haves. Skills that fluctuate between ranks 4–10 are strong differentiators but not dealbreakers. Prioritize stable top-ranked skills in your resume before adding situational ones.
 
-**Skills Landscape by Industry (Interactive) - Treemap** 
+### Skills Landscape by Industry (Interactive) - Treemap 
 
 **Why This Chart?** 
 
@@ -89,7 +89,7 @@ This interactive version allows job seekers to focus on a single industry at a t
 - Computer Systems Design heavily favors Microsoft Access and Progress Reporting for Data Analysts, suggesting a more traditional enterprise analytics stack.
 - Public Accountants is the smallest sector but shows BigQuery and Capital Markets skills, indicating emerging data modernization in accounting firms.
 
-**Industry → Job Title → Skills Flow - Sankey** 
+### Industry → Job Title → Skills Flow - Sankey
 
 **Why This Chart?** 
 
@@ -106,7 +106,7 @@ A Sankey diagram visualizes flow and volume simultaneously. The width of each ba
 
 Focus on Data Analyst roles as the primary entry point. These represent the largest share of available positions across every major industry.
 
-**Job Title Demand by Industry - Heatmap** 
+### Job Title Demand by Industry - Heatmap 
 
 **Why This Chart?** 
 
