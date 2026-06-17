@@ -15,18 +15,10 @@ All advanced visualizations on this page are built using Plotly and are based on
 
 ## Top 10 Skills Ranked by Month (2024) - Bump Chart
 
-Tracks how the ranking of the top 10 in-demand skills shifted across May–September 2024.
+Use the dropdown menu at the top left of the chart to filter by job title and explore how skill rankings shift across May–September 2024.
 
 ```{=html}
 <iframe src="figures/bump_chart_skills.html" width="100%" height="650px" frameborder="0"></iframe>
-```
-
-## In-Demand Skills by Job Title and Industry - Treemap
-
-Shows the distribution of skills nested within job titles and industries. Block size represents number of postings.
-
-```{=html}
-<iframe src="figures/treemap_skills.html" width="100%" height="750px" frameborder="0"></iframe>
 ```
 
 ## Skills Landscape by Industry (Interactive) - Treemap
