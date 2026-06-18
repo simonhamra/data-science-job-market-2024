@@ -45,8 +45,11 @@ df_skills.set_index("Name", inplace=True)
 plt.figure(figsize=(8, 6))
 sns.heatmap(df_skills, annot=True, cmap="coolwarm", linewidths=0.5)
 plt.title("Team Skill Levels Heatmap")
+plt.xticks(rotation=45)
 plt.show()
 ```
+
+The differences in proficiencies amongst the skills and teammates reveals an opportunity for team collaboration to bridge skill gaps.
 
 
 ## Comparing Team Skills to Industry Requirements
@@ -54,7 +57,7 @@ plt.show()
 After completing the exploratory data visualizations, it became apparent that the skills we assumed would be in highest demand were not all found in the top 20 in-demand skills of the dataset. After updating our list of skills, using the same numerical scale to indicate proficiency levels, we are able to compare our teams skills to the industry's demands. 
 ```{python}
 
-skills_data = {
+skill_data = {
     "Communication":[0,0,0,0],
     "Data Analysis":[0,0,0,0],
     "Management":[0,0,0,0],
@@ -73,10 +76,10 @@ job_skill_counts = Counter(top_skills)
 
 # Compare with team skill levels
 for skill in top_skills:
-    if skill not in df_skills.columns:
-        df_skills[skill] = 0  # Assume no knowledge in missing skills
+    if skill not in df_skill.columns:
+        df_skill[skill] = 0  # Assume no knowledge in missing skills
 
-df_skills
+df_skill
 ```
 
 An updated heatmap could now be created with a more accurate representation of our team's skills in comparison to the industry's requirements.
@@ -89,12 +92,18 @@ plt.xticks(rotation=45)
 plt.show()
 ```
 
+Similarly to the original heat map, the differences in proficiencies reveal opportunities for collaboration, but this one also indicates possible gaps we may have as individuals in terms of industry expectation.
+
 
 ## Improvement Plan Proposal
-Now that we have compared our current skill proficiency levels to the industry requirements, we can identify areas of improvement. The following steps can be taken to begin the process of strengthing in-demand skills:
 
-(1) Prioritizing our learning
+Now that we have compared our current skill proficiency levels to the industry requirements, we can identify areas of improvement. The following steps can be taken to begin the process of strengthening in-demand skills:
 
-(2) Finding courses or resources to help
+**(1) Prioritizing our learning**
+    With data to support the top in-demand skills, we can prioritize areas of development to align with our individual career aspirations. 
 
-(3) Using team collaboration to bridge skill gaps
+**(2) Finding courses or resources to help**
+    To build confidence and experience, it is important to find available resources. Courses offered in the BU ABA master’s program align with current and projected in-demand skills. Additional certifications can be found to improve machine learning and AI-related qualifications.
+
+**(3) Using team collaboration to bridge   skill gaps**
+    The heat map shows a wide range of proficiencies amongst the team members. Each team member brings a unique academic and professional background to the table. When collaborating on a team project like this one, it can be an effective learning tool to not just divide work amongst team members, but to take the time and understand what and how others contributed.
