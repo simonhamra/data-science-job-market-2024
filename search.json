@@ -42,6 +42,13 @@
     "text": "Job Title Demand by Industry - Heatmap\nShows the number of job postings per job title across industries. Darker cells indicate higher demand."
   },
   {
+    "objectID": "advanced_visualizations.html#connection-to-outside-data-source",
+    "href": "advanced_visualizations.html#connection-to-outside-data-source",
+    "title": "Advanced Visualizations",
+    "section": "Connection to Outside Data Source",
+    "text": "Connection to Outside Data Source\nThe World Economic Forum projects a shift in automation versus augmentation from 2025 to 2023. Figures show an eventual even split between work performed by people, technology, or a combination of the two. This sheds light on the significance of the top skills discovered in the dataset. An understanding of data analytics and programming are projected to remain as core skills sought after amongst the industries. But, as the necessity for a bridge between AI and human touch increases amongst the industries, it is strong communication skills that will work in tandem with these technical skills.\nA projection of skill disruption in the next five years revealed that the top skill that will be sought after across industries will continue to be analytical thinking, followed by flexibility & agility. In the same time span, the highest skills on the rise will be AI & big data, followed by networks & cybersecurity. Looking at the job title demand by industry found in the visualizations above, this growth prediction is consistent with past job posting data. The emphasis on AI-related knowledge is already prevalent in today’s job market and aligns with future projections."
+  },
+  {
     "objectID": "myenv/lib/python3.14/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.html",
     "href": "myenv/lib/python3.14/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.html",
     "title": "AD-688 Team 4 – Data Science & BA Trends",
@@ -327,6 +334,13 @@
     "title": "Text Mining & Classification",
     "section": "2.8 Reading the result",
     "text": "2.8 Reading the result\nIn plain language. I trained two models to guess, from nothing but a posting’s metadata, whether a “BI Analyst” job is really a machine-learning / data-science job underneath. The Random Forest lands around 0.71 accuracy, 0.58 F1 and 0.78 AUC on data it never saw clearly better than chance, and clearly better than the logistic baseline (~0.66 AUC).\nThe features that mattered were, in order, advertised salary, required education, and required years of experience. The direction is intuitive and the logistic coefficients confirm it: higher minimum education pushes a role toward ML/DS, and remote-friendly roles skew slightly more ML/DS too. In other words, the data-science version of a BI job tends to pay more and ask for a more advanced degree even when the job title on the posting is identical.\nWhy it is not higher. I capped my own accuracy on purpose by refusing to let the model read the skill list or the description (see the callout in Part 1). A model is only as trustworthy as the question it answers, and “predict the skills from the skills” is not a real question. ~0.78 AUC from pure metadata is, to me, the more defensible number to put my name on.\nFor a job seeker (this is the part the brief section 6 really wants): if you are aiming for the data-science end of this market rather than the reporting end, the metadata of the posting is a tell. Roles that advertise a higher salary band and ask for a master’s are far more likely to be the genuinely ML-heavy ones. If a posting says “BI Analyst” but only asks for a bachelor’s and lists Excel and Power BI, expect dashboards, not models."
+  },
+  {
+    "objectID": "literary_review.html",
+    "href": "literary_review.html",
+    "title": "Literary Review: Business Analytics, Data Science, and Machine Learning Trends",
+    "section": "",
+    "text": "Example Inline Citation (Author-Year Format): “The impact of AI on job security has been widely discussed in recent years Smith and Zhao ((2023)).”"
   },
   {
     "objectID": "kmeans_clustering.html",

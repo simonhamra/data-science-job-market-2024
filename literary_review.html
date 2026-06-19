@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Meera Chaddha">
+<meta name="author" content="Team 4">
+<meta name="dcterms.date" content="2026-06-17">
 
-<title>Advanced Visualizations – AD-688 Team 4 – Data Science &amp; BA Trends</title>
+<title>Literary Review: Business Analytics, Data Science, and Machine Learning Trends – AD-688 Team 4 – Data Science &amp; BA Trends</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -109,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Skill Gap Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./advanced_visualizations.html" aria-current="page"> 
+    <a class="nav-link" href="./advanced_visualizations.html"> 
 <span class="menu-text">Advanced Visualizations</span></a>
   </li>  
   <li class="nav-item">
@@ -136,12 +156,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#visualization-theme" id="toc-visualization-theme" class="nav-link active" data-scroll-target="#visualization-theme">Visualization Theme</a></li>
-  <li><a href="#top-10-skills-ranked-by-month-2024---bump-chart" id="toc-top-10-skills-ranked-by-month-2024---bump-chart" class="nav-link" data-scroll-target="#top-10-skills-ranked-by-month-2024---bump-chart">Top 10 Skills Ranked by Month (2024) - Bump Chart</a></li>
-  <li><a href="#skills-landscape-by-industry-interactive---treemap" id="toc-skills-landscape-by-industry-interactive---treemap" class="nav-link" data-scroll-target="#skills-landscape-by-industry-interactive---treemap">Skills Landscape by Industry (Interactive) - Treemap</a></li>
-  <li><a href="#industry-job-title-skills-flow---sankey" id="toc-industry-job-title-skills-flow---sankey" class="nav-link" data-scroll-target="#industry-job-title-skills-flow---sankey">Industry → Job Title → Skills Flow - Sankey</a></li>
-  <li><a href="#job-title-demand-by-industry---heatmap" id="toc-job-title-demand-by-industry---heatmap" class="nav-link" data-scroll-target="#job-title-demand-by-industry---heatmap">Job Title Demand by Industry - Heatmap</a></li>
-  <li><a href="#connection-to-outside-data-source" id="toc-connection-to-outside-data-source" class="nav-link" data-scroll-target="#connection-to-outside-data-source">Connection to Outside Data Source</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -150,27 +165,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Advanced Visualizations</h1>
+<h1 class="title">Literary Review: Business Analytics, Data Science, and Machine Learning Trends</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Meera Chaddha </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Boston University
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Team 4 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 17, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -180,39 +194,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="visualization-theme" class="level2">
-<h2 class="anchored" data-anchor-id="visualization-theme">Visualization Theme</h2>
-<p>All advanced visualizations on this page are built using Plotly and are based on the cleaned Lightcast 2024 job postings dataset (72,477 records). Charts are embedded using full-width display and standardized dimensions to maintain visual consistency. These visualizations go beyond exploratory analysis to uncover deeper patterns in skill demand trends, industry hiring behavior, and the flow of roles and skills across sectors.</p>
-</section>
-<section id="top-10-skills-ranked-by-month-2024---bump-chart" class="level2">
-<h2 class="anchored" data-anchor-id="top-10-skills-ranked-by-month-2024---bump-chart">Top 10 Skills Ranked by Month (2024) - Bump Chart</h2>
-<p>Use the dropdown menu at the top left of the chart to filter by job title and explore how skill rankings shift across May–September 2024.</p>
-<iframe src="figures/bump_chart_skills.html" width="100%" height="650px" frameborder="0"></iframe>
-</section>
-<section id="skills-landscape-by-industry-interactive---treemap" class="level2">
-<h2 class="anchored" data-anchor-id="skills-landscape-by-industry-interactive---treemap">Skills Landscape by Industry (Interactive) - Treemap</h2>
-<p><strong>How to Use:</strong> Use the dropdown menu at the top left to select an industry. The treemap will update to show only the job titles and skills relevant to that sector.</p>
-<iframe src="figures/treemap_skills_interactive.html" width="100%" height="750px" frameborder="0"></iframe>
-</section>
-<section id="industry-job-title-skills-flow---sankey" class="level2">
-<h2 class="anchored" data-anchor-id="industry-job-title-skills-flow---sankey">Industry → Job Title → Skills Flow - Sankey</h2>
-<p><strong>How to Read:</strong> Left (blue) = Industries, Middle (red) = Job Titles, Right (green) = Skills. Band width represents number of job postings.</p>
-<iframe src="figures/sankey_skills.html" width="100%" height="650px" frameborder="0"></iframe>
-</section>
-<section id="job-title-demand-by-industry---heatmap" class="level2">
-<h2 class="anchored" data-anchor-id="job-title-demand-by-industry---heatmap">Job Title Demand by Industry - Heatmap</h2>
-<p>Shows the number of job postings per job title across industries. Darker cells indicate higher demand.</p>
-<iframe src="figures/heatmap_titles.html" width="100%" height="550px" frameborder="0"></iframe>
-</section>
-<section id="connection-to-outside-data-source" class="level2">
-<h2 class="anchored" data-anchor-id="connection-to-outside-data-source">Connection to Outside Data Source</h2>
-<p>The World Economic Forum projects a shift in automation versus augmentation from 2025 to 2023. Figures show an eventual even split between work performed by people, technology, or a combination of the two. This sheds light on the significance of the top skills discovered in the dataset. An understanding of data analytics and programming are projected to remain as core skills sought after amongst the industries. But, as the necessity for a bridge between AI and human touch increases amongst the industries, it is strong communication skills that will work in tandem with these technical skills.</p>
-<p>A projection of skill disruption in the next five years revealed that the top skill that will be sought after across industries will continue to be analytical thinking, followed by flexibility &amp; agility. In the same time span, the highest skills on the rise will be AI &amp; big data, followed by networks &amp; cybersecurity. Looking at the job title demand by industry found in the visualizations above, this growth prediction is consistent with past job posting data. The emphasis on AI-related knowledge is already prevalent in today’s job market and aligns with future projections.</p>
+<p>Example Inline Citation (Author-Year Format): “The impact of AI on job security has been widely discussed in recent years <span class="citation" data-cites="smith2023ai">Smith and Zhao (<a href="#ref-smith2023ai" role="doc-biblioref">(2023)</a>)</span>.”</p>
+<section id="references" class="level2">
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-smith2023ai" class="csl-entry" role="listitem">
+<span class="smallcaps">Smith, J., and L. Zhao</span>. (2023): <span>“<a href="https://doi.org/10.1257/jep.37.2.112">The impact of AI on labor markets</a>,”</span> <em>Journal of Economic Perspectives</em>, 37, 112–35.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
