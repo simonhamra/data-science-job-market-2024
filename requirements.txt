@@ -1,10 +1,19 @@
-pandas
-numpy
-plotly
-pyspark
-pyarrow
-scikit-learn
-matplotlib
-seaborn
-jupyter
-nbformat
+# AD-688 Team 4 — Python dependencies
+# Generated from actual imports in the notebook + .qmd chunks + data/Clean_export.py
+# Target: Python 3.9 (project .venv). pip will resolve 3.9-compatible builds.
+
+# --- Data handling ---
+pandas==2.2.3
+numpy==2.0.2
+
+# --- Visualization ---
+matplotlib==3.9.4
+seaborn==0.13.2
+plotly==5.24.1
+wordcloud==1.9.4
+
+# --- Machine learning / text mining ---
+scikit-learn==1.6.1
+
+# --- Required for Quarto to execute {python} chunks (.qmd rendering) ---
+jupyter==1.1.1
