@@ -58,15 +58,16 @@ After completing the exploratory data visualizations, it became apparent that th
 ```{python}
 
 skill_data = {
-    "Communication":[0,0,0,0],
-    "Data Analysis":[0,0,0,0],
-    "Management":[0,0,0,0],
-    "Problem Solving":[0,0,0,0],
-    "Leadership":[0,0,0,0],
-    "Computer Science":[0,0,0,0],
-    "Operations":[0,0,0,0],
-    "Project Management":[0,0,0,0],
-    "Business Process":[0,0,0,0]
+    "Communication":[3,4,2,4],
+    "Data Analysis":[4,4,3,3],
+    "Management":[3,2,2,3],
+    "SQL":[4, 2, 2, 2],
+    "Problem Solving":[5,5,5,5],
+    "Leadership":[4,5,4,4],
+    "Computer Science":[1,2,3,1],
+    "Operations":[1,1,4,2],
+    "Project Management":[3,2,2,3],
+    "Business Process":[3,3,3,3]
 }
 from collections import Counter
 
