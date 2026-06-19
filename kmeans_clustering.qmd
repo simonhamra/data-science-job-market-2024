@@ -76,21 +76,34 @@ cluster_df.head()
 ```{python}
 cluster_counts = cluster_df["Cluster"].value_counts().reset_index()
 cluster_counts.columns = ["Cluster", "Count"]
+cluster_counts = cluster_counts.sort_values("Cluster")
+
+cluster_counts["Cluster_Label"] = cluster_counts["Cluster"].map({
+    0: "Cluster 0: Smaller group",
+    1: "Cluster 1: Large group",
+    2: "Cluster 2: Largest group",
+    3: "Cluster 3: Medium group"
+})
 
 fig = px.bar(
     cluster_counts,
     x="Cluster",
     y="Count",
-    color="Cluster",
+    color="Cluster_Label",
     title="Distribution of Job Postings by KMeans Cluster",
     text="Count"
 )
 
 fig.update_layout(
-    xaxis_title="Cluster",
+    xaxis_title="KMeans Cluster",
     yaxis_title="Number of Job Postings",
-    showlegend=False,
-    height=500
+    height=500,
+    xaxis=dict(
+        tickmode="array",
+        tickvals=[0, 1, 2, 3],
+        ticktext=["0", "1", "2", "3"]
+    ),
+    legend_title_text="Cluster Meaning"
 )
 
 fig.show()
@@ -158,20 +171,41 @@ pca_components = pca.fit_transform(scaled_data)
 
 cluster_df["PCA1"] = pca_components[:, 0]
 cluster_df["PCA2"] = pca_components[:, 1]
+cluster_df["Cluster_Label"] = cluster_df["Cluster"].map({
+    0: "Cluster 0",
+    1: "Cluster 1",
+    2: "Cluster 2",
+    3: "Cluster 3"
+})
 
 fig = px.scatter(
     cluster_df,
     x="PCA1",
     y="PCA2",
-    color="Cluster",
+    color="Cluster_Label",
     title="KMeans Clusters Visualized with PCA",
     hover_data=["NAICS2_NAME"]
+)
+
+fig.add_vline(
+    x=0,
+    line_width=2,
+    line_dash="dash",
+    line_color="gray"
+)
+
+fig.add_hline(
+    y=0,
+    line_width=2,
+    line_dash="dash",
+    line_color="gray"
 )
 
 fig.update_layout(
     xaxis_title="PCA Component 1",
     yaxis_title="PCA Component 2",
-    height=600
+    height=600,
+    legend_title_text="Cluster"
 )
 
 fig.show()
