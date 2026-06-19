@@ -28,5 +28,68 @@
   },
   "text_mining_classification.qmd": {
     "text_mining_classification.html": "2c4c9c3e"
+  },
+  "myenv/lib/python3.14/site-packages/soupsieve-2.8.4.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "6a6ffe3c"
+  },
+  "myenv/lib/python3.14/site-packages/pyparsing/ai/best_practices.md": {
+    "best_practices.html": "4b3fcd85"
+  },
+  "myenv/lib/python3.14/site-packages/numpy/random/LICENSE.md": {
+    "LICENSE.html": "9291122f"
+  },
+  "myenv/lib/python3.14/site-packages/narwhals-2.22.1.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "6ae7bbb0"
+  },
+  "myenv/lib/python3.14/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "f719cff9"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md": {
+    "LICENSE.html": "54242e8e"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md": {
+    "LICENSE.html": "69607a3b"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/random/src/philox/LICENSE.md": {
+    "LICENSE.html": "62222617"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/random/src/distributions/LICENSE.md": {
+    "LICENSE.html": "77dfa03f"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md": {
+    "LICENSE.html": "8eb32db5"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md": {
+    "LICENSE.html": "39f9a151"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md": {
+    "LICENSE.html": "60ccef58"
+  },
+  "myenv/lib/python3.14/site-packages/numpy-2.4.6.dist-info/licenses/numpy/random/LICENSE.md": {
+    "LICENSE.html": "be8dd62f"
+  },
+  "myenv/lib/python3.14/site-packages/pandas/tests/indexes/period/test_indexing.py": {
+    "test_indexing.html": "a9965d5f"
+  },
+  "myenv/lib/python3.14/site-packages/pandas/tests/indexes/period/test_constructors.py": {
+    "test_constructors.html": "774042be"
+  },
+  "myenv/lib/python3.14/site-packages/pandas/tests/indexes/datetimes/test_indexing.py": {
+    "test_indexing.html": "fef13de5"
+  },
+  "myenv/lib/python3.14/site-packages/seaborn-0.13.2.dist-info/LICENSE.md": {
+    "LICENSE.html": "a1d05032"
+  },
+  "myenv/lib/python3.14/site-packages/cffi/recompiler.py": {
+    "recompiler.html": "28bd4fa2"
+  },
+  "myenv/lib/python3.14/site-packages/idna-3.18.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "6d930516"
+  },
+  "myenv/lib/python3.14/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "ff6fd8ba"
+  },
+  "myenv/lib/python3.14/site-packages/pyzmq-27.1.0.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "be698955"
   }
 }
