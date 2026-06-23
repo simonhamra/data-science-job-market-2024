@@ -131,3 +131,12 @@ A heatmap is ideal for showing a two-dimensional comparison. Here we cross job t
 **Implications for Job Seekers** 
 
 If you are targeting a Data Analyst role, Computer Programming and Management Consulting firms offer the most opportunities. If you specialize in Data Modeling, Computer Programming is your primary target market.
+
+## Text Mining & Classification
+
+The text mining of the job descriptions in the dataset was used to explore the difference between ML/DS-intensive roles and traditional BI roles. Supervised classification models then set out to predict whether a BI role is ML/DS-intensive using structured features. A logistic regression model and random forest model were compared using confusion matrices. Salary band and degree requirements were determined to be signifiers of true data-science roles.
+
+## KMeans Clustering Analysis
+
+The unsupervised learning method was generated to identify hidden patterns amongst the dataset. The clusters produced by the model could be compared to NAICS industries as a way to identify possible classifications. 
+
