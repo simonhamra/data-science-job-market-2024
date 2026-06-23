@@ -16,11 +16,11 @@ This section conducts a skill gap analysis by comparing our team's current set o
 
 When first listing IT-related skills, our team ranked our proficiency levels on the following numerical scale:
 
-1 = Beginner
-2 = Basic knowledge
-3 = Intermediate
-4 = Advanced
-5 = Expert
+    1 = Beginner
+    2 = Basic knowledge
+    3 = Intermediate
+    4 = Advanced
+    5 = Expert
 
 Orignally, we thought relevant skills would include coding languages, machine learning, and cloud computing. The following heatmap helps you visualize which group members excelled in which of these skillsets.
 ```{python}
@@ -105,12 +105,13 @@ Now that we have compared our current skill proficiency levels to the industry r
 
 **(1) Prioritizing our learning**
 
-    With data to support the top in-demand skills, we can prioritize areas of development to align with our individual career aspirations. 
+With data to support the top in-demand skills, we can prioritize areas of development to align with our individual career aspirations. 
 
 **(2) Finding courses or resources to help**
 
-    To build confidence and experience, it is important to find available resources. Courses offered in the BU ABA master’s program align with current and projected in-demand skills. Additional certifications can be found to improve machine learning and AI-related qualifications.
+To build confidence and experience, it is important to find available resources. Courses offered in the BU ABA master’s program align with current and projected in-demand skills. Additional certifications can be found to improve machine learning and AI-related qualifications.
 
 **(3) Using team collaboration to bridge skill gaps**
 
-    The heat map shows a wide range of proficiencies amongst the team members. Each team member brings a unique academic and professional background to the table. When collaborating on a team project like this one, it can be an effective learning tool to not just divide work amongst team members, but to take the time and understand what and how others contributed.
+The heat map shows a wide range of proficiencies amongst the team members. Each team member brings a unique academic and professional background to the table. When collaborating on a team project like this one, it can be an effective learning tool to not just divide work amongst team members, but to take the time and understand what and how others contributed.
+
