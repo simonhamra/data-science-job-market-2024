@@ -7,20 +7,18 @@ website:
     left:
       - href: index.qmd
         text: "Home"
-      - href: introduction.qmd
-        text: "Project Overview"
-      - href: data_cleaning.qmd
-        text: "Data Preparation"
       - href: data_analysis.qmd
         text: "Data Analysis"
       - href: eda.qmd
         text: "Exploratory Analysis"
       - href: skill_gap_analysis.qmd
         text: "Skill Gap Analysis"
-      - href: ml_methods.qmd
-        text: "Predictive Modeling"
-      - href: career_plan.qmd
-        text: "Career Strategy"
+      - href: advanced_visualizations.qmd
+        text: "Advanced Visualizations"
+      - href: text_mining_classification.qmd
+        text: "Text Mining & Classification"
+      - href: kmeans_clustering.qmd
+        text: "KMeans Clustering Analysis"
 
 format:
   html:
