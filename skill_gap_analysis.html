@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Skill Gap Analysis – AD-688 Team 4 – Data Science &amp; BA Trends</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -67,15 +70,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6fc9d6c17617e0ae5a0d73c1e12b0c38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f007ae36f829960ec0d5ff9c830b6a89.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,8 +119,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">AD-688 Team 4 – Data Science &amp; BA Trends</span>
     </a>
@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 4 = Advanced
 5 = Expert</code></pre>
 <p>Orignally, we thought relevant skills would include coding languages, machine learning, and cloud computing. The following heatmap helps you visualize which group members excelled in which of these skillsets.</p>
-<div id="b1ca9e7e" class="cell" data-execution_count="1">
+<div id="199d1a99" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -240,46 +240,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df_skills, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">"coolwarm"</span>, linewidths<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Team Skill Levels Heatmap"</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="skill_gap_analysis_files/figure-html/cell-2-output-1.png" width="620" height="506" class="figure-img"></p>
+<p><img src="skill_gap_analysis_files/figure-html/cell-2-output-1.png" width="619" height="584" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>The differences in proficiencies amongst the skills and teammates reveals an opportunity for team collaboration to bridge skill gaps.</p>
 </section>
 <section id="comparing-team-skills-to-industry-requirements" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-team-skills-to-industry-requirements">Comparing Team Skills to Industry Requirements</h2>
-<p>After completing the exploratory data visualizations, it became apparent that the skills we assumed would be in highest demand were not all found in the top 20 in-demand skills of the dataset. After updating our list of skills, using the same numerical scale to indicate proficiency levels, we are able to compare our teams skills to the industry’s demands.</p>
-<div id="b78896b2" class="cell" data-execution_count="2">
+<p>After completing the exploratory data visualizations, it became apparent that the skills we assumed would be in highest demand were not all found in the top 10 in-demand skills of the dataset. After updating our list of skills, using the same numerical scale to indicate proficiency levels, we were able to compare our teams skills to the industry’s demands.</p>
+<div id="c310463a" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>skills_data <span class="op">=</span> {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Communication"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data Analysis"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Management"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Problem Solving"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Leadership"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Computer Science"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Operations"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Project Management"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Business Process"</span>:[<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 In-Demand Skills in Job Postings found in exploratory data tab</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>top_skills <span class="op">=</span> [<span class="st">"Communication"</span>, <span class="st">"Data Analysis"</span>, <span class="st">"Management"</span>, <span class="st">"SQL"</span>, <span class="st">"Problem Solving"</span>, <span class="st">"Leadership"</span>, <span class="st">"Computer Science"</span>,<span class="st">"Operations"</span>, <span class="st">"Project Management"</span>, <span class="st">"Business Process"</span>]</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>job_skill_counts <span class="op">=</span> Counter(top_skills)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with team skill levels</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> skill <span class="kw">in</span> top_skills:</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> skill <span class="kw">not</span> <span class="kw">in</span> df_skills.columns:</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        df_skills[skill] <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Assume no knowledge in missing skills</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>df_skills</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Name"</span>: [<span class="st">"Meera"</span>, <span class="st">"Simon"</span>, <span class="st">"Mia"</span>, <span class="st">"Keily"</span>],</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Communication"</span>:[<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data Analysis"</span>:[<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">3</span>],</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Management"</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"SQL"</span>:[<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>],</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Problem Solving"</span>:[<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>],</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Leadership"</span>:[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">4</span>],</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Computer Science"</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>],</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Operations"</span>:[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>],</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Project Management"</span>:[<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Business Process"</span>:[<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 In-Demand Skills in Job Postings found in exploratory data tab</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>top_skills <span class="op">=</span> [<span class="st">"Communication"</span>, <span class="st">"Data Analysis"</span>, <span class="st">"Management"</span>, <span class="st">"SQL"</span>, <span class="st">"Problem Solving"</span>, <span class="st">"Leadership"</span>, <span class="st">"Computer Science"</span>,<span class="st">"Operations"</span>, <span class="st">"Project Management"</span>, <span class="st">"Business Process"</span>]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>job_skill_counts <span class="op">=</span> Counter(top_skills)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with team skill levels</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> skill <span class="kw">in</span> top_skills:</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> skill <span class="kw">not</span> <span class="kw">in</span> df_skills.columns:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        df_skills[skill] <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Assume no knowledge in missing skills</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>df_skills <span class="op">=</span> pd.DataFrame(skills_data)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>df_skills.set_index(<span class="st">"Name"</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>df_skills</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -289,13 +295,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Python</th>
-<th data-quarto-table-cell-role="th">SQL</th>
-<th data-quarto-table-cell-role="th">Machine Learning</th>
-<th data-quarto-table-cell-role="th">Cloud Computing</th>
 <th data-quarto-table-cell-role="th">Communication</th>
 <th data-quarto-table-cell-role="th">Data Analysis</th>
 <th data-quarto-table-cell-role="th">Management</th>
+<th data-quarto-table-cell-role="th">SQL</th>
 <th data-quarto-table-cell-role="th">Problem Solving</th>
 <th data-quarto-table-cell-role="th">Leadership</th>
 <th data-quarto-table-cell-role="th">Computer Science</th>
@@ -315,9 +318,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
@@ -326,64 +326,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>3</td>
 <td>4</td>
 <td>3</td>
+<td>4</td>
+<td>5</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
 <td>3</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td>3</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Simon</th>
-<td>3</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
 <td>2</td>
 <td>5</td>
+<td>5</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
 <td>3</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Mia</th>
 <td>2</td>
+<td>3</td>
+<td>2</td>
 <td>2</td>
 <td>5</td>
-<td>5</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td>4</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+<td>3</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Keily</th>
+<td>4</td>
+<td>3</td>
 <td>3</td>
 <td>2</td>
-<td>3</td>
+<td>5</td>
+<td>4</td>
+<td>1</td>
 <td>2</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td>3</td>
+<td>3</td>
 </tr>
 </tbody>
 </table>
@@ -391,34 +379,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>An updated heatmap could now be created with a more accurate representation of our team’s skills in comparison to the industry’s requirements.</p>
-<div id="8448855b" class="cell" data-execution_count="3">
+<p>An updated heatmap could now be created with an accurate representation of our team’s skills in comparison to the industry’s requirements.</p>
+<div id="81b4344a" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heat map of skill level data frame</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df_skills, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">"coolwarm"</span>, linewidths<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Team Skill Levels Heatmap"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">75</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="skill_gap_analysis_files/figure-html/cell-4-output-1.png" width="607" height="602" class="figure-img"></p>
+<p><img src="skill_gap_analysis_files/figure-html/cell-4-output-1.png" width="619" height="628" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Similarly to the original heat map, the differences in proficiencies reveal opportunities for collaboration, but this one also indicates possible gaps we may have as individuals in terms of industry expectation.</p>
 </section>
 <section id="improvement-plan-proposal" class="level2">
 <h2 class="anchored" data-anchor-id="improvement-plan-proposal">Improvement Plan Proposal</h2>
-<p>Now that we have compared our current skill proficiency levels to the industry requirements, we can identify areas of improvement. The following steps can be taken to begin the process of strengthing in-demand skills:</p>
-<ol type="1">
-<li><p>Prioritizing our learning</p></li>
-<li><p>Finding courses or resources to help</p></li>
-<li><p>Using team collaboration to bridge skill gaps</p></li>
-</ol>
+<p>Now that we have compared our current skill proficiency levels to the industry requirements, we can identify areas of improvement. The following steps can be taken to begin the process of strengthening in-demand skills:</p>
+<p><strong>(1) Prioritizing our learning</strong></p>
+<p>With data to support the top in-demand skills, we can prioritize areas of development to align with our individual career aspirations.</p>
+<p><strong>(2) Finding courses or resources to help</strong></p>
+<p>To build confidence and experience, it is important to find available resources. Courses offered in the BU ABA master’s program align with current and projected in-demand skills. Additional certifications can be found to improve machine learning and AI-related qualifications.</p>
+<p><strong>(3) Using team collaboration to bridge skill gaps</strong></p>
+<p>The heat map shows a wide range of proficiencies amongst the team members. Each team member brings a unique academic and professional background to the table. When collaborating on a team project like this one, it can be an effective learning tool to not just divide work amongst team members, but to take the time and understand what and how others contributed.</p>
 
 
 </section>
