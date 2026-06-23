@@ -14,6 +14,10 @@ Understanding labor market trends is important for students and professionals pr
 
 In addition to exploratory data analysis, this project incorporates findings from external sources such as OECD, Stanford HAI, Lightcast reports, and academic literature. By combining labor market data with existing research, the project provides a broader understanding of how artificial intelligence is reshaping workforce demand and influencing the future of analytics-related careers.
 
+## Data Analysis
+
+To begin data exploration and analysis, the dataset was put through comprehensive data cleaning. The second research question could then be properly examined. By finding the most frequently observed AI-related terms in the dataset, the data revealed the increase in AI-related language. The current job market demand is seen to have a combination of traditional AI/ML concepts alongside newer generative AI terms.
+
 ## EDA Analysis 
 
 ### Chart 1: Job Postings by Industry
@@ -57,6 +61,10 @@ In addition to exploratory data analysis, this project incorporates findings fro
 **Why:** Geographic variation in job postings helps job seekers understand where to target their search and whether relocation could significantly expand opportunities.
 
 **Insights:** Texas and California dominate by a wide margin, together accounting for a large share of all postings. Florida, Virgina, Illinois, and New York follow, suggesting that major tech and business hubs remain the primary hiring centers.
+
+## Skill Gap Analysis
+
+The team compiled a list of technical skills that they believed would be in high demand prior to conducting exploratory analysis. Upon reviewing the EDA results, the list was updated to include the top 10 in-demand skills. The team used their academic and professional experience to assign each skill with a proficiency level. The comparison of individual proficiencies and job market demand revealed possible areas of improvement. 
 
 ## Advanced Visualizations 
 
