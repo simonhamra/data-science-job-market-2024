@@ -11,6 +11,8 @@ author:
         state: MA
 format: 
   html:
+    bibliography: references.bib
+    csl: csl/econometrica.csl
     toc: true
     number-sections: true
     df-print: paged
@@ -41,8 +43,10 @@ The data suggests that job descriptions have evolved to include more AI-related 
 
 ### Connection to Literature
 
-External research supports this finding. OECD reports that artificial intelligence is changing the demand for skills in the labor market. Lightcast also reports growth in generative AI-related job postings. Additional research on generative AI and ChatGPT-related job advertisements suggests that employers are increasingly asking for AI-related knowledge across industries.
+External research supports this finding. OECD reports that artificial intelligence is changing the demand for skills in the labor market [@green2024ai]. Lightcast also reports growth in generative AI-related job postings. Additional research on generative AI and ChatGPT-related job advertisements suggests that employers are increasingly asking for AI-related knowledge across industries.
 
 ### Conclusion
 
 Overall, the Lightcast keyword results and external labor market research suggest that job descriptions from 2024–2026 have evolved to place greater emphasis on AI and machine learning expertise.
+
+## References
