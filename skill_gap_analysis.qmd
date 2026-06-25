@@ -46,6 +46,7 @@ plt.figure(figsize=(8, 6))
 sns.heatmap(df_skills, annot=True, cmap="coolwarm", linewidths=0.5)
 plt.title("Team Skill Levels Heatmap")
 plt.xticks(rotation=45)
+plt.xlabel("Skills")
 plt.show()
 ```
 
@@ -89,10 +90,11 @@ df_skills
 An updated heatmap could now be created with an accurate representation of our team's skills in comparison to the industry's requirements.
 ```{python}
 # Heat map of skill level data frame
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(8, 4))
 sns.heatmap(df_skills, annot=True, cmap="coolwarm", linewidths=0.5)
 plt.title("Team Skill Levels Heatmap")
 plt.xticks(rotation=75)
+plt.xlabel("Skills")
 plt.show()
 ```
 
