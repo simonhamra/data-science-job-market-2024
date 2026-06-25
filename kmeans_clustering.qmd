@@ -79,10 +79,10 @@ cluster_counts.columns = ["Cluster", "Count"]
 cluster_counts = cluster_counts.sort_values("Cluster")
 
 cluster_counts["Cluster_Label"] = cluster_counts["Cluster"].map({
-    0: "Cluster 0: Smaller group",
-    1: "Cluster 1: Large group",
-    2: "Cluster 2: Largest group",
-    3: "Cluster 3: Medium group"
+    0: "Cluster 0: Cluster 0",
+    1: "Cluster 1: Cluster 1",
+    2: "Cluster 2: Cluster 2",
+    3: "Cluster 3: Cluster 3"
 })
 
 fig = px.bar(
@@ -108,6 +108,10 @@ fig.update_layout(
 
 fig.show()
 ```
+#
+The clustering results indicate that most job postings belong to Cluster 1 and Cluster 2, suggesting that the labor market is dominated by medium- to high-demand positions. Cluster 0 represents a relatively small segment of postings, while Cluster 3 captures a specialized group with different salary and experience characteristics.
+
+
 
 # Comparing Clusters with NAICS Industry Labels
 
@@ -123,6 +127,9 @@ cluster_industry_table = pd.crosstab(
 
 cluster_industry_table
 ```
+#
+Professional, Scientific, and Technical Services appears consistently across all clusters, indicating that this industry dominates data-related hiring regardless of salary or experience level.
+
 
 # Top NAICS Industry Within Each Cluster
 
@@ -139,6 +146,14 @@ top_industry_by_cluster = (
 
 top_industry_by_cluster
 ```
+#
+Cluster 2 is mainly associated with Professional Scientific and Technical Services.
+
+Cluster 1 contains more Finance and Administrative Services.
+
+Cluster 3 includes more Wholesale Trade.
+
+
 
 # Cluster and Industry Visualization
 
@@ -211,11 +226,17 @@ fig.update_layout(
 fig.show()
 ```
 
+#
+The PCA plot shows that the four clusters are reasonably separated after dimensionality reduction, suggesting that KMeans identified meaningful group structures.
+
+
 # Interpretation
 
 The KMeans model groups job postings based on salary and experience requirements. The NAICS industry labels are used as reference labels to help interpret whether clusters are associated with specific industry categories.
 
 This analysis suggests that jobs with similar salary and experience profiles can be grouped into meaningful labor market segments. Comparing clusters with NAICS industries helps connect the unsupervised model results to real-world industry classifications.
+
+These findings demonstrate that salary and experience variables alone can reveal meaningful labor market segments using unsupervised learning.
 
 # Implications for Job Seekers
 
