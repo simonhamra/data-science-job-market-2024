@@ -1,6 +1,9 @@
 _site/
 .quarto/
 
+# Python virtual environment
+.venv/
+
 data/*.csv
 
 /.quarto/
