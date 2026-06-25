@@ -71,10 +71,8 @@ skills_data = {
     "Project Management":[3,2,2,3],
     "Business Process":[3,3,3,3]
 }
+
 import pandas as pd
-
-df_skill = pd.DataFrame(skill_data, index=["Meera", "Simon", "Mia", "Keily"])
-
 from collections import Counter
 
 # Top 10 In-Demand Skills in Job Postings found in exploratory data tab

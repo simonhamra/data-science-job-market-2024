@@ -79,10 +79,10 @@ cluster_counts.columns = ["Cluster", "Count"]
 cluster_counts = cluster_counts.sort_values("Cluster")
 
 cluster_counts["Cluster_Label"] = cluster_counts["Cluster"].map({
-    0: "Cluster 0: Cluster 0",
-    1: "Cluster 1: Cluster 1",
-    2: "Cluster 2: Cluster 2",
-    3: "Cluster 3: Cluster 3"
+    0: "Cluster 0: Entry-Level Jobs",
+    1: "Cluster 1: Mid-Level Jobs",
+    2: "Cluster 2: Experienced Jobs",
+    3: "Cluster 3: High Salary Jobs"
 })
 
 fig = px.bar(
@@ -187,10 +187,10 @@ pca_components = pca.fit_transform(scaled_data)
 cluster_df["PCA1"] = pca_components[:, 0]
 cluster_df["PCA2"] = pca_components[:, 1]
 cluster_df["Cluster_Label"] = cluster_df["Cluster"].map({
-    0: "Cluster 0",
-    1: "Cluster 1",
-    2: "Cluster 2",
-    3: "Cluster 3"
+    0: "Entry-Level Jobs",
+    1: "Mid-Level Jobs",
+    2: "Experienced Jobs",
+    3: "High Salary Jobs"
 })
 
 fig = px.scatter(
